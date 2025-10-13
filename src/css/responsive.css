@@ -1,0 +1,56 @@
+/**
+ * Responsive Styles
+ * Media queries for mobile and tablet devices
+ */
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    #analyzeBtn {
+        width: 100%;
+    }
+
+    .stats-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .results-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .export-btn {
+        width: 100%;
+    }
+
+    .performance-score-card {
+        padding: 20px;
+    }
+
+    .score-circle {
+        width: 150px;
+        height: 150px;
+        border-width: 6px;
+    }
+
+    .score-value {
+        font-size: 2.8rem;
+    }
+
+    .score-category {
+        font-size: 0.95rem;
+    }
+
+    .breakdown-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}

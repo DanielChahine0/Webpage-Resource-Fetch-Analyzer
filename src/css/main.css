@@ -1,0 +1,24 @@
+/**
+ * Main Stylesheet
+ * Imports all modular CSS files
+ * 
+ * Webpage Resource Fetch Analyzer
+ * Created by: Daniel Chahine
+ */
+
+/* Base styles and animations */
+@import 'base.css';
+
+/* Layout components */
+@import 'layout.css';
+
+/* UI Components */
+@import 'input-form.css';
+@import 'progress.css';
+@import 'performance-score.css';
+@import 'results.css';
+@import 'table.css';
+@import 'error.css';
+
+/* Responsive design */
+@import 'responsive.css';

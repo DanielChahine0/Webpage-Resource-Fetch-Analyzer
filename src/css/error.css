@@ -1,0 +1,27 @@
+/**
+ * Error Display Styles
+ * Error message display styles
+ */
+
+.error-section {
+    padding: 20px;
+    background: #3a2020;
+    border-radius: 8px;
+    border-left: 4px solid #cc0000;
+    animation: fadeIn 0.5s;
+}
+
+.error-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.error-icon {
+    font-size: 2rem;
+}
+
+#errorMessage {
+    color: #ff6666;
+    font-size: 1rem;
+}

@@ -4,7 +4,7 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
 
 ## ⚡ Performance
 
-**Optimized for Speed**: Uses parallel fetching, caching, and timeout protection to analyze websites **5-10x faster** than sequential approaches. See [OPTIMIZATIONS.md](OPTIMIZATIONS.md) for details.
+**Optimized for Speed**: Uses parallel fetching, caching, and timeout protection to analyze websites **5-10x faster** than sequential approaches.
 
 ## 📋 Features
 
@@ -81,11 +81,52 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
 
 ## 🛠️ Technical Details
 
-### Files Structure
+### Project Structure
 
-- `index.html` - Main HTML structure and layout
-- `styles.css` - Styling and responsive design
-- `script.js` - Core functionality and resource analysis logic
+The project uses a modern, modular architecture for better maintainability:
+
+```
+Webpage-Resource-Fetch-Analyzer/
+├── index.html                 # Main HTML entry point
+├── README.md                  # This file
+├── src/
+│   ├── js/                    # JavaScript modules (ES6)
+│   │   ├── app.js             # Application entry point
+│   │   ├── core/              # Core business logic
+│   │   │   ├── resource-analyzer.js
+│   │   │   ├── resource-parser.js
+│   │   │   ├── resource-fetcher.js
+│   │   │   └── performance-scorer.js
+│   │   ├── ui/                # UI components
+│   │   │   ├── ui-controller.js
+│   │   │   ├── progress-display.js
+│   │   │   ├── results-display.js
+│   │   │   ├── performance-score-display.js
+│   │   │   ├── error-display.js
+│   │   │   ├── loading-display.js
+│   │   │   └── csv-exporter.js
+│   │   └── utils/             # Utility functions
+│   │       ├── url-utils.js
+│   │       └── format-utils.js
+│   └── css/                   # CSS modules
+│       ├── main.css           # CSS entry point
+│       ├── base.css
+│       ├── layout.css
+│       ├── input-form.css
+│       ├── progress.css
+│       ├── performance-score.css
+│       ├── results.css
+│       ├── table.css
+│       ├── error.css
+│       └── responsive.css
+├── docs/                      # Documentation
+│   ├── PROJECT_STRUCTURE.md  # Detailed architecture guide
+│   └── [other documentation files]
+└── assets/                    # Static assets
+
+```
+
+For detailed information about the architecture, see [docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md).
 
 ### Key Features Implementation
 

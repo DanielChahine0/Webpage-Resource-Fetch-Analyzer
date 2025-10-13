@@ -1,0 +1,63 @@
+/**
+ * Resources Table Styles
+ * Table displaying all analyzed resources
+ */
+
+.resources-table-container {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid #3a3a3a;
+}
+
+#resourcesTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#resourcesTable thead {
+    background: #3a3a3a;
+}
+
+#resourcesTable th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #e0e0e0;
+    border-bottom: 2px solid #3a3a3a;
+}
+
+#resourcesTable td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #3a3a3a;
+    color: #e0e0e0;
+}
+
+#resourcesTable tbody tr:hover {
+    background: #333;
+}
+
+.file-type {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.type-html { background: #3a3a3a; color: #e0e0e0; }
+.type-css { background: #3a3a3a; color: #e0e0e0; }
+.type-js { background: #3a3a3a; color: #e0e0e0; }
+.type-image { background: #3a3a3a; color: #e0e0e0; }
+.type-video { background: #3a3a3a; color: #e0e0e0; }
+.type-audio { background: #3a3a3a; color: #e0e0e0; }
+.type-font { background: #3a3a3a; color: #e0e0e0; }
+.type-other { background: #3a3a3a; color: #e0e0e0; }
+
+.url-cell {
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #999;
+    font-size: 0.9rem;
+}
