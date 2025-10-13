@@ -5,6 +5,7 @@ class ResourceAnalyzer {
     constructor() {
         this.resources = [];
         this.totalSize = 0;
+        this.sizeCache = new Map(); // Cache for resource sizes
     }
 
     /**
@@ -244,26 +245,83 @@ class ResourceAnalyzer {
     }
 
     /**
-     * Fetches resource size
+     * Fetches resource size with timeout and caching
      */
-    async fetchResourceSize(url) {
+    async fetchResourceSize(url, timeout = 10000) {
+        // Check cache first
+        if (this.sizeCache.has(url)) {
+            return this.sizeCache.get(url);
+        }
+        
         try {
             const proxyUrl = 'https://api.allorigins.win/raw?url=';
-            const response = await fetch(proxyUrl + encodeURIComponent(url), { method: 'GET' });
+            
+            // Create abort controller for timeout
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), timeout);
+            
+            const response = await fetch(proxyUrl + encodeURIComponent(url), { 
+                method: 'GET',
+                signal: controller.signal
+            });
+            
+            clearTimeout(timeoutId);
             
             if (response.ok) {
                 const blob = await response.blob();
-                return blob.size;
+                const size = blob.size;
+                
+                // Cache the result
+                this.sizeCache.set(url, size);
+                return size;
             }
         } catch (e) {
-            console.warn(`Failed to fetch ${url}:`, e.message);
+            if (e.name === 'AbortError') {
+                console.warn(`Timeout fetching ${url}`);
+            } else {
+                console.warn(`Failed to fetch ${url}:`, e.message);
+            }
         }
         
+        // Cache failed fetches as 0 to avoid retrying
+        this.sizeCache.set(url, 0);
         return 0;
     }
 
     /**
-     * Main analysis function with dynamic updates
+     * Fetches multiple resources in parallel with concurrency limit
+     */
+    async fetchResourcesBatch(urls, concurrency = 10) {
+        const results = [];
+        const executing = [];
+        
+        for (const url of urls) {
+            const promise = this.fetchResourceSize(url).then(size => ({
+                url,
+                size,
+                name: this.getFileName(url),
+                type: this.getFileType(url)
+            }));
+            
+            results.push(promise);
+            
+            if (concurrency <= urls.length) {
+                const executingPromise = promise.then(() => {
+                    executing.splice(executing.indexOf(executingPromise), 1);
+                });
+                executing.push(executingPromise);
+                
+                if (executing.length >= concurrency) {
+                    await Promise.race(executing);
+                }
+            }
+        }
+        
+        return await Promise.all(results);
+    }
+
+    /**
+     * Main analysis function with dynamic updates and parallel fetching
      */
     async analyze(urlString, progressCallback, resourceCallback) {
         this.resources = [];
@@ -294,32 +352,37 @@ class ResourceAnalyzer {
         const resourceURLs = this.collectResourceURLs(html, baseURL);
         
         const total = resourceURLs.length;
-        progressCallback(`Found ${total} resources. Starting download...`, 1, total + 1);
+        progressCallback(`Found ${total} resources. Starting parallel download...`, 1, total + 1);
         
-        // Fetch sizes for each resource - show results immediately
+        // Fetch resources in parallel batches
         let processed = 1; // Start at 1 because we already have HTML
+        const batchSize = 10; // Process 10 at a time
         
-        for (const resourceURL of resourceURLs) {
-            const size = await this.fetchResourceSize(resourceURL);
+        for (let i = 0; i < resourceURLs.length; i += batchSize) {
+            const batch = resourceURLs.slice(i, i + batchSize);
+            const batchResults = await this.fetchResourcesBatch(batch, batchSize);
             
-            if (size > 0) {
-                const resource = {
-                    name: this.getFileName(resourceURL),
-                    type: this.getFileType(resourceURL),
-                    size: size,
-                    url: resourceURL
-                };
-                
-                this.resources.push(resource);
-                this.totalSize += size;
-                
-                // Update UI immediately with this resource
-                processed++;
-                progressCallback(`Fetching resources...`, processed, total + 1);
-                resourceCallback(resource, processed, total + 1, this.totalSize);
-            } else {
-                processed++;
-                progressCallback(`Fetching resources...`, processed, total + 1);
+            // Process results from this batch
+            for (const result of batchResults) {
+                if (result.size > 0) {
+                    const resource = {
+                        name: result.name,
+                        type: result.type,
+                        size: result.size,
+                        url: result.url
+                    };
+                    
+                    this.resources.push(resource);
+                    this.totalSize += result.size;
+                    
+                    // Update UI immediately with this resource
+                    processed++;
+                    progressCallback(`Fetching resources...`, processed, total + 1);
+                    resourceCallback(resource, processed, total + 1, this.totalSize);
+                } else {
+                    processed++;
+                    progressCallback(`Fetching resources...`, processed, total + 1);
+                }
             }
         }
 
@@ -329,6 +392,13 @@ class ResourceAnalyzer {
             totalFiles: this.resources.length,
             mainHtmlSize: htmlSize
         };
+    }
+
+    /**
+     * Clears the size cache
+     */
+    clearCache() {
+        this.sizeCache.clear();
     }
 }
 
@@ -447,6 +517,9 @@ class UIController {
             this.showError('Please enter a URL');
             return;
         }
+
+        // Clear cache for fresh analysis (optional - comment out to keep cache between analyses)
+        this.analyzer.clearCache();
 
         this.showLoader(true);
         this.hideError();
