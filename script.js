@@ -411,6 +411,9 @@ class UIController {
     constructor() {
         this.analyzer = new ResourceAnalyzer();
         this.results = null;
+        this.startTime = null;
+        this.itemsProcessed = 0;
+        this.totalItems = 0;
         this.initEventListeners();
     }
 
@@ -461,6 +464,25 @@ class UIController {
             // Reset progress bar
             const progressBar = document.getElementById('progressBar');
             progressBar.style.width = '0%';
+        } else {
+            // Reset timer when showing progress
+            this.startTime = Date.now();
+            this.itemsProcessed = 0;
+        }
+    }
+
+    formatTime(seconds) {
+        if (seconds < 1) {
+            return 'Less than a second';
+        } else if (seconds < 60) {
+            return `${Math.round(seconds)} second${seconds !== 1 ? 's' : ''}`;
+        } else {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.round(seconds % 60);
+            if (remainingSeconds === 0) {
+                return `${minutes} minute${minutes !== 1 ? 's' : ''}`;
+            }
+            return `${minutes} min ${remainingSeconds} sec`;
         }
     }
 
@@ -468,12 +490,31 @@ class UIController {
         const progressStatus = document.getElementById('progressStatus');
         const progressText = document.getElementById('progressText');
         const progressBar = document.getElementById('progressBar');
+        const timeEstimate = document.getElementById('timeEstimate');
         
         progressStatus.textContent = message;
         progressText.textContent = `${current} / ${total}`;
         
         const percentage = total > 0 ? (current / total) * 100 : 0;
         progressBar.style.width = percentage + '%';
+        
+        // Update items processed counter
+        this.itemsProcessed = current;
+        this.totalItems = total;
+        
+        // Calculate and display estimated time remaining
+        if (this.startTime && current > 0 && total > current) {
+            const elapsedTime = (Date.now() - this.startTime) / 1000; // in seconds
+            const averageTimePerItem = elapsedTime / current;
+            const remainingItems = total - current;
+            const estimatedTimeRemaining = averageTimePerItem * remainingItems;
+            
+            timeEstimate.textContent = this.formatTime(estimatedTimeRemaining);
+        } else if (current >= total) {
+            timeEstimate.textContent = 'Complete!';
+        } else {
+            timeEstimate.textContent = 'Calculating...';
+        }
     }
 
     addResourceToTable(resource, index) {
