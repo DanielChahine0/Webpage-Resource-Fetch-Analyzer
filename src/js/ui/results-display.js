@@ -18,7 +18,7 @@ export class ResultsDisplay {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${index}</td>
-            <td><strong>${resource.name}</strong></td>
+            <td class="name-cell" title="${resource.name}"><strong>${resource.name}</strong></td>
             <td><span class="file-type type-${resource.type}">${resource.type.toUpperCase()}</span></td>
             <td>${FormatUtils.formatBytes(resource.size)}</td>
             <td class="url-cell" title="${resource.url}">${resource.url}</td>
