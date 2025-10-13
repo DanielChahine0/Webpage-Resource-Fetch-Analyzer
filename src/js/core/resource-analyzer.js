@@ -53,11 +53,11 @@ export class ResourceAnalyzer {
         // Fetch resources in parallel batches
         let processedURLs = 0;
         let successfulResources = 1; // Start at 1 for HTML
-        const batchSize = 10;
+        const batchSize = 5; // Reduced batch size to avoid rate limiting
         
         for (let i = 0; i < resourceURLs.length; i += batchSize) {
             const batch = resourceURLs.slice(i, i + batchSize);
-            const batchResults = await this.fetcher.fetchResourcesBatch(batch, batchSize);
+            const batchResults = await this.fetcher.fetchResourcesBatch(batch, 3); // Max 3 concurrent requests
             
             // Process results from this batch
             for (const result of batchResults) {
