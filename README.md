@@ -8,6 +8,11 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
 
 ## 📋 Features
 
+- **Performance Score Calculator**: Get an overall performance score (0-100) similar to Google Lighthouse
+  - Analyzes page size, request count, resource distribution, and compression
+  - Color-coded indicators (Excellent/Good/Fair/Poor)
+  - Detailed breakdown of individual metrics
+  - Actionable insights for optimization
 - **URL Analysis**: Input any webpage URL and analyze all its resources
 - **Fast Parallel Fetching**: Downloads up to 10 resources simultaneously
 - **Smart Caching**: Avoids re-downloading duplicate resources
