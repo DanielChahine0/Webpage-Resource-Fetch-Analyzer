@@ -1,0 +1,47 @@
+# Netlify configuration file
+# Documentation: https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # Directory to serve
+  publish = "."
+  
+  # Build command (not needed for static site)
+  command = "echo 'No build step required'"
+
+[[headers]]
+  # Apply these headers to all routes
+  for = "/*"
+  [headers.values]
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    
+    # Cache control for static assets
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  # Cache JavaScript and CSS files longer
+  for = "/src/js/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/src/css/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  # Redirect www to non-www (optional)
+  from = "https://www.your-domain.com/*"
+  to = "https://your-domain.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  # SPA fallback (if needed in future)
+  from = "/*"
+  to = "/index.html"
+  status = 200

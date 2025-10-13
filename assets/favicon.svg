@@ -1,0 +1,7 @@
+<!-- Favicon SVG - Simple magnifying glass icon -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="40" cy="40" r="30" fill="none" stroke="#4CAF50" stroke-width="6"/>
+  <line x1="62" y1="62" x2="85" y2="85" stroke="#4CAF50" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="40" cy="40" r="18" fill="#1a1a2e"/>
+  <text x="40" y="48" font-family="Arial, sans-serif" font-size="20" fill="#4CAF50" text-anchor="middle" font-weight="bold">A</text>
+</svg>

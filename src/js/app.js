@@ -10,9 +10,10 @@
  */
 
 import { UIController } from './ui/ui-controller.js';
+import { logger } from './utils/logger.js';
 
 // Initialize the application when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     new UIController();
-    console.log('Webpage Resource Fetch Analyzer initialized');
+    logger.log('Webpage Resource Fetch Analyzer initialized');
 });

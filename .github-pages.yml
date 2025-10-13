@@ -1,0 +1,27 @@
+# GitHub Pages deployment configuration
+# This file is used by GitHub Actions to deploy to GitHub Pages
+
+# Base path (update this if deploying to a subdirectory)
+# baseURL: "/"
+
+# Runtime environment
+env:
+  NODE_ENV: production
+
+# Include these files in deployment
+include:
+  - index.html
+  - README.md
+  - LICENSE
+  - src/**
+  - assets/**
+
+# Exclude these files from deployment
+exclude:
+  - .git
+  - .github
+  - docs/**
+  - "*.md"
+  - .gitignore
+  - netlify.toml
+  - vercel.json
