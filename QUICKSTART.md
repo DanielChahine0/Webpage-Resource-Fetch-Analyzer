@@ -4,17 +4,39 @@ Get your Webpage Resource Fetch Analyzer deployed in under 5 minutes!
 
 ## Option 1: GitHub Pages (Easiest - 2 minutes)
 
-1. **Fork/Clone this repository** to your GitHub account
+### ⚠️ IMPORTANT: First-Time Setup Required
 
-2. **Enable GitHub Pages**:
-   - Go to repository **Settings** → **Pages**
+1. **Push your code to GitHub**:
+   ```powershell
+   git add .
+   git commit -m "Deploy"
+   git push origin main
+   ```
+
+2. **Enable GitHub Pages** (Critical - Do this first!):
+   - Go to your repository on GitHub
+   - Click **Settings** → **Pages**
    - Under "Build and deployment":
-     - Source: Select **GitHub Actions**
+     - **Source**: Select **GitHub Actions** (NOT "Deploy from branch")
    - Click **Save**
+   
+   📖 **Detailed instructions**: See [GITHUB_PAGES_SETUP.md](GITHUB_PAGES_SETUP.md)
 
-3. **Done!** 🎉
+3. **Trigger deployment**:
+   ```powershell
+   # Push another commit to trigger the workflow
+   git commit --allow-empty -m "Trigger Pages deployment"
+   git push origin main
+   ```
+
+4. **Wait for deployment** (1-3 minutes):
+   - Go to **Actions** tab on GitHub
+   - Watch the "Deploy to GitHub Pages" workflow
+   - ✅ Green checkmark = Success!
+
+5. **Done!** 🎉
    - Your site will be live at: `https://yourusername.github.io/repository-name/`
-   - Automatic deployments on every push to `main` branch
+   - Future pushes auto-deploy automatically
 
 ## Option 2: Netlify (Fastest - 1 minute)
 
