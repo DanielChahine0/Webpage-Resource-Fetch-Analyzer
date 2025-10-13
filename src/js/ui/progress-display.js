@@ -23,10 +23,26 @@ export class ProgressDisplay {
             // Reset progress bar
             const progressBar = document.getElementById('progressBar');
             progressBar.style.width = '0%';
+            // Hide proxy status
+            const proxyStatus = document.getElementById('proxyStatus');
+            proxyStatus.style.display = 'none';
         } else {
             // Reset timer when showing progress
             this.startTime = Date.now();
             this.itemsProcessed = 0;
+        }
+    }
+
+    /**
+     * Updates the proxy status display
+     */
+    updateProxyStatus(proxyName) {
+        const proxyStatus = document.getElementById('proxyStatus');
+        const proxyNameElement = document.getElementById('proxyName');
+        
+        if (proxyName) {
+            proxyNameElement.textContent = proxyName;
+            proxyStatus.style.display = 'flex';
         }
     }
 

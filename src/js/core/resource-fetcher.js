@@ -9,7 +9,35 @@ import { logger } from '../utils/logger.js';
 export class ResourceFetcher {
     constructor() {
         this.sizeCache = new Map();
-        this.proxyUrl = 'https://api.allorigins.win/raw?url=';
+        // Multiple proxy fallback options
+        this.proxies = [
+            {
+                name: 'CORS Anywhere (Heroku)',
+                url: 'https://cors-anywhere.herokuapp.com/',
+                format: (url) => this.proxies[0].url + url,
+                needsRequest: true // Requires user to request access first
+            },
+            {
+                name: 'AllOrigins GET',
+                url: 'https://api.allorigins.win/get?url=',
+                format: (url) => this.proxies[1].url + encodeURIComponent(url),
+                parseResponse: async (response) => {
+                    const data = await response.json();
+                    return data.contents;
+                }
+            },
+            {
+                name: 'AllOrigins RAW',
+                url: 'https://api.allorigins.win/raw?url=',
+                format: (url) => this.proxies[2].url + encodeURIComponent(url)
+            },
+            {
+                name: 'ThingProxy',
+                url: 'https://thingproxy.freeboard.io/fetch/',
+                format: (url) => this.proxies[3].url + encodeURIComponent(url)
+            }
+        ];
+        this.currentProxyIndex = 1; // Start with AllOrigins GET (more reliable than RAW)
         this.lastRequestTime = 0;
         this.minRequestDelay = 100; // Minimum delay between requests in ms
     }
@@ -31,22 +59,55 @@ export class ResourceFetcher {
     }
 
     /**
-     * Fetches HTML content using CORS proxy
+     * Fetches HTML content using CORS proxy with automatic fallback
      */
     async fetchHTML(url) {
         logger.log(`🌐 Fetching main HTML from: ${url}`);
-        await this.addDelay(200); // Longer delay for HTML fetch
-        const response = await fetch(this.proxyUrl + encodeURIComponent(url));
         
-        if (!response.ok) {
-            logger.error(`❌ Failed to fetch HTML: ${response.status} ${response.statusText}`);
-            throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
+        // Try each proxy until one works
+        for (let i = 0; i < this.proxies.length; i++) {
+            const proxyIndex = (this.currentProxyIndex + i) % this.proxies.length;
+            const proxy = this.proxies[proxyIndex];
+            
+            try {
+                logger.log(`🔄 Trying ${proxy.name}...`);
+                await this.addDelay(200); // Longer delay for HTML fetch
+                
+                const proxyUrl = proxy.format(url);
+                const response = await fetch(proxyUrl);
+                
+                if (!response.ok) {
+                    logger.warn(`⚠️ ${proxy.name} failed: ${response.status} ${response.statusText}`);
+                    continue;
+                }
+                
+                // Parse response based on proxy type
+                let html;
+                if (proxy.parseResponse) {
+                    html = await proxy.parseResponse(response);
+                } else {
+                    html = await response.text();
+                }
+                
+                const size = new Blob([html]).size;
+                logger.log(`✅ HTML fetched successfully using ${proxy.name} (${(size / 1024).toFixed(2)} KB)`);
+                
+                // Remember successful proxy for next time
+                this.currentProxyIndex = proxyIndex;
+                
+                return { html, size };
+            } catch (error) {
+                logger.warn(`❌ ${proxy.name} error: ${error.message}`);
+                
+                // Special handling for CORS Anywhere
+                if (proxy.needsRequest && error.message.includes('403')) {
+                    logger.warn(`⚠️ CORS Anywhere requires manual access request at: ${proxy.url}`);
+                }
+            }
         }
         
-        const html = await response.text();
-        const size = new Blob([html]).size;
-        logger.log(`✅ HTML fetched successfully (${(size / 1024).toFixed(2)} KB)`);
-        return { html, size };
+        // All proxies failed
+        throw new Error('All proxy services failed. The website may be blocking requests or the proxies are down. Try a different URL.');
     }
 
     /**
@@ -106,6 +167,9 @@ export class ResourceFetcher {
         // Fallback to proxy with rate limiting and retries
         logger.log(`🔄 Falling back to proxy for: ${url.substring(0, 60)}...`);
         for (let attempt = 0; attempt <= retries; attempt++) {
+            // Try current working proxy
+            const proxy = this.proxies[this.currentProxyIndex];
+            
             try {
                 // Add delay before each proxy request
                 await this.addDelay();
@@ -114,7 +178,8 @@ export class ResourceFetcher {
                 const controller = new AbortController();
                 const timeoutId = setTimeout(() => controller.abort(), timeout);
                 
-                const response = await fetch(this.proxyUrl + encodeURIComponent(url), { 
+                const proxyUrl = proxy.format(url);
+                const response = await fetch(proxyUrl, { 
                     method: 'GET',
                     signal: controller.signal
                 });
@@ -122,9 +187,18 @@ export class ResourceFetcher {
                 clearTimeout(timeoutId);
                 
                 if (response.ok) {
-                    const blob = await response.blob();
-                    const size = blob.size;
-                    logger.log(`✅ Proxy fetch successful: ${(size / 1024).toFixed(2)} KB`);
+                    let size;
+                    
+                    // Parse response based on proxy type
+                    if (proxy.parseResponse) {
+                        const content = await proxy.parseResponse(response);
+                        size = new Blob([content]).size;
+                    } else {
+                        const blob = await response.blob();
+                        size = blob.size;
+                    }
+                    
+                    logger.log(`✅ Proxy fetch successful using ${proxy.name}: ${(size / 1024).toFixed(2)} KB`);
                     
                     // Cache the result
                     this.sizeCache.set(url, size);
@@ -136,7 +210,13 @@ export class ResourceFetcher {
                     await new Promise(resolve => setTimeout(resolve, backoffDelay));
                     continue;
                 } else {
-                    logger.warn(`⚠️ Proxy returned status ${response.status} for ${url.substring(0, 60)}...`);
+                    logger.warn(`⚠️ ${proxy.name} returned status ${response.status} for ${url.substring(0, 60)}...`);
+                    
+                    // Try next proxy on failure
+                    if (attempt < retries) {
+                        this.currentProxyIndex = (this.currentProxyIndex + 1) % this.proxies.length;
+                        logger.log(`🔄 Switching to ${this.proxies[this.currentProxyIndex].name}`);
+                    }
                 }
             } catch (e) {
                 if (e.name === 'AbortError') {
@@ -200,5 +280,27 @@ export class ResourceFetcher {
         const cacheSize = this.sizeCache.size;
         this.sizeCache.clear();
         console.log(`🗑️ Cache cleared (removed ${cacheSize} entries)`);
+    }
+
+    /**
+     * Get current proxy information
+     */
+    getCurrentProxy() {
+        const proxy = this.proxies[this.currentProxyIndex];
+        return {
+            name: proxy.name,
+            index: this.currentProxyIndex,
+            totalProxies: this.proxies.length
+        };
+    }
+
+    /**
+     * Manually switch to next proxy
+     */
+    switchProxy() {
+        this.currentProxyIndex = (this.currentProxyIndex + 1) % this.proxies.length;
+        const proxy = this.proxies[this.currentProxyIndex];
+        logger.log(`🔄 Switched to ${proxy.name}`);
+        return proxy.name;
     }
 }

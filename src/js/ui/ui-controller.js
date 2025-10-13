@@ -64,6 +64,10 @@ export class UIController {
         let mainHtmlSize = 0;
 
         try {
+            // Show proxy status
+            const proxyInfo = this.analyzer.fetcher.getCurrentProxy();
+            this.progressDisplay.updateProxyStatus(proxyInfo.name);
+            
             const results = await this.analyzer.analyze(
                 urlInput,
                 // Progress callback
