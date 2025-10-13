@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage Resource Fetch Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 Webpage Resource Fetch Analyzer</h1>
+            <p class="subtitle">Analyze and measure all resources loaded by a webpage</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <form id="analyzerForm">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="urlInput" 
+                            placeholder="Enter URL (e.g., https://example.com or example.com)"
+                            required
+                        >
+                        <button type="submit" id="analyzeBtn">
+                            <span class="btn-text">Analyze</span>
+                            <span class="loader" style="display: none;"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="progressSection" class="progress-section" style="display: none;">
+                <div class="progress-header">
+                    <h3 id="progressStatus">Loading...</h3>
+                    <span id="progressText">0 / 0</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <div class="results-header">
+                    <h2>Analysis Results</h2>
+                    <button id="exportBtn" class="export-btn">📥 Export CSV</button>
+                </div>
+                
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalFiles">0</div>
+                        <div class="stat-label">Total Files</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalSize">0 bytes</div>
+                        <div class="stat-label">Total Size</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="mainHtmlSize">0 bytes</div>
+                        <div class="stat-label">Main HTML Size</div>
+                    </div>
+                </div>
+
+                <div class="resources-table-container">
+                    <table id="resourcesTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>File Name</th>
+                                <th>Type</th>
+                                <th>Size</th>
+                                <th>URL</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resourcesBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="errorSection" class="error-section" style="display: none;">
+                <div class="error-content">
+                    <span class="error-icon">⚠️</span>
+                    <p id="errorMessage"></p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Created by Daniel Chahine</p>
+            <p class="note">Note: Due to browser CORS restrictions, this tool uses a proxy service. Some websites may not be accessible.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
