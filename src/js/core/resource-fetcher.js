@@ -88,8 +88,12 @@ export class ResourceFetcher {
     async fetchResourceSize(url, timeout = 10000, retries = 2) {
         // Check cache first
         if (this.sizeCache.has(url)) {
-            return this.sizeCache.get(url);
+            const cachedSize = this.sizeCache.get(url);
+            console.log(`💾 Cache hit for: ${url.substring(0, 60)}... (${(cachedSize / 1024).toFixed(2)} KB)`);
+            return cachedSize;
         }
+        
+        console.log(`📥 Fetching: ${url.substring(0, 80)}...`);
         
         // Try direct fetch first (no rate limits)
         const directSize = await this.tryDirectFetch(url);
@@ -99,6 +103,7 @@ export class ResourceFetcher {
         }
         
         // Fallback to proxy with rate limiting and retries
+        console.log(`🔄 Falling back to proxy for: ${url.substring(0, 60)}...`);
         for (let attempt = 0; attempt <= retries; attempt++) {
             try {
                 // Add delay before each proxy request
@@ -118,6 +123,7 @@ export class ResourceFetcher {
                 if (response.ok) {
                     const blob = await response.blob();
                     const size = blob.size;
+                    console.log(`✅ Proxy fetch successful: ${(size / 1024).toFixed(2)} KB`);
                     
                     // Cache the result
                     this.sizeCache.set(url, size);
@@ -125,24 +131,27 @@ export class ResourceFetcher {
                 } else if (response.status === 429 && attempt < retries) {
                     // Rate limited - wait longer before retry
                     const backoffDelay = Math.min(1000 * Math.pow(2, attempt), 5000);
-                    console.warn(`Rate limited for ${url}, retrying in ${backoffDelay}ms...`);
+                    console.warn(`⚠️ Rate limited for ${url.substring(0, 60)}..., retrying in ${backoffDelay}ms... (attempt ${attempt + 1}/${retries + 1})`);
                     await new Promise(resolve => setTimeout(resolve, backoffDelay));
                     continue;
+                } else {
+                    console.warn(`⚠️ Proxy returned status ${response.status} for ${url.substring(0, 60)}...`);
                 }
             } catch (e) {
                 if (e.name === 'AbortError') {
-                    console.warn(`Timeout fetching ${url}`);
+                    console.warn(`⏱️ Timeout fetching ${url.substring(0, 60)}...`);
                 } else if (attempt < retries) {
-                    console.warn(`Failed to fetch ${url} (attempt ${attempt + 1}/${retries + 1}):`, e.message);
+                    console.warn(`⚠️ Failed to fetch ${url.substring(0, 60)}... (attempt ${attempt + 1}/${retries + 1}):`, e.message);
                     await new Promise(resolve => setTimeout(resolve, 500 * (attempt + 1)));
                     continue;
                 } else {
-                    console.warn(`Failed to fetch ${url}:`, e.message);
+                    console.warn(`❌ Failed to fetch ${url.substring(0, 60)}...:`, e.message);
                 }
             }
         }
         
         // Cache failed fetches as 0 to avoid retrying
+        console.log(`💀 Caching failed fetch as 0 for: ${url.substring(0, 60)}...`);
         this.sizeCache.set(url, 0);
         return 0;
     }
@@ -151,6 +160,7 @@ export class ResourceFetcher {
      * Fetches multiple resources in parallel with concurrency limit
      */
     async fetchResourcesBatch(urls, concurrency = 3) {
+        console.log(`📦 Processing batch of ${urls.length} resources with concurrency ${concurrency}`);
         const results = [];
         const executing = [];
         
@@ -176,13 +186,18 @@ export class ResourceFetcher {
             }
         }
         
-        return await Promise.all(results);
+        const batchResults = await Promise.all(results);
+        const successCount = batchResults.filter(r => r.size > 0).length;
+        console.log(`✅ Batch complete: ${successCount}/${urls.length} resources fetched successfully`);
+        return batchResults;
     }
 
     /**
      * Clears the size cache
      */
     clearCache() {
+        const cacheSize = this.sizeCache.size;
         this.sizeCache.clear();
+        console.log(`🗑️ Cache cleared (removed ${cacheSize} entries)`);
     }
 }
