@@ -351,11 +351,12 @@ class ResourceAnalyzer {
         progressCallback('Parsing HTML and collecting resources...', 1, 1);
         const resourceURLs = this.collectResourceURLs(html, baseURL);
         
-        const total = resourceURLs.length;
-        progressCallback(`Found ${total} resources. Starting parallel download...`, 1, total + 1);
+        const totalURLs = resourceURLs.length;
+        progressCallback(`Found ${totalURLs} resources. Starting parallel download...`, 1, totalURLs + 1);
         
         // Fetch resources in parallel batches
-        let processed = 1; // Start at 1 because we already have HTML
+        let processedURLs = 0; // Track how many URLs we've processed
+        let successfulResources = 1; // Track successfully added resources (start at 1 for HTML)
         const batchSize = 10; // Process 10 at a time
         
         for (let i = 0; i < resourceURLs.length; i += batchSize) {
@@ -364,6 +365,8 @@ class ResourceAnalyzer {
             
             // Process results from this batch
             for (const result of batchResults) {
+                processedURLs++;
+                
                 if (result.size > 0) {
                     const resource = {
                         name: result.name,
@@ -374,14 +377,15 @@ class ResourceAnalyzer {
                     
                     this.resources.push(resource);
                     this.totalSize += result.size;
+                    successfulResources++;
                     
                     // Update UI immediately with this resource
-                    processed++;
-                    progressCallback(`Fetching resources...`, processed, total + 1);
-                    resourceCallback(resource, processed, total + 1, this.totalSize);
+                    // Show: current successful resource / processed URLs (of total URLs)
+                    progressCallback(`Fetching resources... (${processedURLs}/${totalURLs} checked)`, processedURLs + 1, totalURLs + 1);
+                    resourceCallback(resource, successfulResources, totalURLs + 1, this.totalSize);
                 } else {
-                    processed++;
-                    progressCallback(`Fetching resources...`, processed, total + 1);
+                    // Still update progress even if resource failed
+                    progressCallback(`Fetching resources... (${processedURLs}/${totalURLs} checked)`, processedURLs + 1, totalURLs + 1);
                 }
             }
         }
@@ -534,7 +538,6 @@ class UIController {
         resultsSection.style.display = 'block';
         
         let mainHtmlSize = 0;
-        let resourceIndex = 0;
 
         try {
             const results = await this.analyzer.analyze(
@@ -544,15 +547,15 @@ class UIController {
                     this.updateProgress(message, current, total);
                 },
                 // Resource callback - called immediately when each resource is fetched
-                (resource, current, total, totalSize) => {
-                    resourceIndex++;
-                    this.addResourceToTable(resource, resourceIndex);
+                // successfulIndex is the number of this successful resource (1, 2, 3...)
+                (resource, successfulIndex, total, totalSize) => {
+                    this.addResourceToTable(resource, successfulIndex);
                     
                     if (resource.type === 'html') {
                         mainHtmlSize = resource.size;
                     }
                     
-                    this.updateStats(resourceIndex, totalSize, mainHtmlSize);
+                    this.updateStats(successfulIndex, totalSize, mainHtmlSize);
                 }
             );
             
