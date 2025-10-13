@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Disallow crawling of assets folder (optional)
+# Allow: /assets/
+
+Sitemap: https://yourusername.github.io/Webpage-Resource-Fetch-Analyzer/sitemap.xml

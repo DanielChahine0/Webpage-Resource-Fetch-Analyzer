@@ -2,6 +2,14 @@
 
 A web-based tool that analyzes and measures all resources loaded by a webpage, including HTML, CSS, JavaScript, images, videos, audio files, and more. This is a JavaScript/HTML conversion of the original Java Assignment1 project.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Deployment Ready](https://img.shields.io/badge/deployment-ready-brightgreen.svg)](DEPLOYMENT.md)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/DanielChahine0/Webpage-Resource-Fetch-Analyzer/pulls)
+
+## 🌐 Live Demo
+
+> 🚀 **Ready to deploy!** See [DEPLOYMENT.md](DEPLOYMENT.md) for deployment instructions to GitHub Pages, Netlify, Vercel, and more.
+
 ## ⚡ Performance
 
 **Optimized for Speed**: Uses parallel fetching, caching, and timeout protection to analyze websites **5-10x faster** than sequential approaches.
@@ -172,9 +180,74 @@ This web implementation mirrors the functionality of the original Java code:
 3. **Size Accuracy**: Some dynamic or protected resources may not be fetchable
 4. **Performance**: Larger sites with many resources may take time to analyze
 
+## 🚀 Deployment
 
-## 🙏 Acknowledgments
+This application is **production-ready** and can be deployed to various platforms:
+
+- **GitHub Pages** - Free and automatic (recommended)
+- **Netlify** - One-click deployment
+- **Vercel** - Instant global deployment
+- **Cloudflare Pages** - Fast CDN
+- **Traditional hosting** - Upload via FTP
+
+See **[DEPLOYMENT.md](DEPLOYMENT.md)** for detailed deployment instructions.
+
+### Quick Deploy
+
+1. **Prepare for production**:
+   ```powershell
+   .\prepare-deploy.ps1
+   ```
+
+2. **Push to GitHub**:
+   ```bash
+   git add .
+   git commit -m "Ready for deployment"
+   git push origin main
+   ```
+
+3. **Enable GitHub Pages**:
+   - Go to repository Settings → Pages
+   - Source: GitHub Actions
+   - Done! Site will be live at `https://yourusername.github.io/repo-name/`
+
+## 📚 Documentation
+
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Complete deployment guide for all platforms
+- **[BUILD.md](BUILD.md)** - Build and optimization instructions
+- **[docs/](docs/)** - Additional technical documentation
+
+## �️ Technologies Used
+
+- **Vanilla JavaScript (ES6+)** - No frameworks, pure performance
+- **CSS3** - Modern responsive design
+- **Fetch API** - Async resource fetching
+- **ES6 Modules** - Clean, modular architecture
+
+## �🙏 Acknowledgments
 
 - Original Java implementation concepts and algorithms
 - [AllOrigins](https://allorigins.win/) for CORS proxy service
-A tool that fetches a webpage, identifies all embedded resources (images, scripts, stylesheets, etc.), and calculates their individual and total sizes. Handles redirects, IPv4 normalization, and HTTPS certificate mismatches for accurate web resource analysis.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Author
+
+**Daniel Chahine**
+- GitHub: [@DanielChahine0](https://github.com/DanielChahine0)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## ⭐ Show your support
+
+Give a ⭐️ if this project helped you!
