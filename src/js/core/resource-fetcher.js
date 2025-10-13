@@ -12,15 +12,19 @@ export class ResourceFetcher {
         // Multiple proxy fallback options
         this.proxies = [
             {
-                name: 'CORS Anywhere (Heroku)',
-                url: 'https://cors-anywhere.herokuapp.com/',
-                format: (url) => this.proxies[0].url + url,
-                needsRequest: true // Requires user to request access first
+                name: 'CORS Proxy',
+                url: 'https://corsproxy.io/?',
+                format: (url) => this.proxies[0].url + encodeURIComponent(url)
+            },
+            {
+                name: 'CORS.SH',
+                url: 'https://cors.sh/',
+                format: (url) => this.proxies[1].url + url
             },
             {
                 name: 'AllOrigins GET',
                 url: 'https://api.allorigins.win/get?url=',
-                format: (url) => this.proxies[1].url + encodeURIComponent(url),
+                format: (url) => this.proxies[2].url + encodeURIComponent(url),
                 parseResponse: async (response) => {
                     const data = await response.json();
                     return data.contents;
@@ -29,15 +33,31 @@ export class ResourceFetcher {
             {
                 name: 'AllOrigins RAW',
                 url: 'https://api.allorigins.win/raw?url=',
-                format: (url) => this.proxies[2].url + encodeURIComponent(url)
+                format: (url) => this.proxies[3].url + encodeURIComponent(url)
+            },
+            {
+                name: 'Proxy.CORS.SH',
+                url: 'https://proxy.cors.sh/',
+                format: (url) => this.proxies[4].url + url
+            },
+            {
+                name: 'API CORS Proxy',
+                url: 'https://api.codetabs.com/v1/proxy?quest=',
+                format: (url) => this.proxies[5].url + encodeURIComponent(url)
             },
             {
                 name: 'ThingProxy',
                 url: 'https://thingproxy.freeboard.io/fetch/',
-                format: (url) => this.proxies[3].url + encodeURIComponent(url)
+                format: (url) => this.proxies[6].url + encodeURIComponent(url)
+            },
+            {
+                name: 'CORS Anywhere',
+                url: 'https://cors-anywhere.herokuapp.com/',
+                format: (url) => this.proxies[7].url + url,
+                needsRequest: true // Requires user to request access first
             }
         ];
-        this.currentProxyIndex = 1; // Start with AllOrigins GET (more reliable than RAW)
+        this.currentProxyIndex = 0; // Start with CORS Proxy (most reliable)
         this.lastRequestTime = 0;
         this.minRequestDelay = 100; // Minimum delay between requests in ms
     }
@@ -64,6 +84,8 @@ export class ResourceFetcher {
     async fetchHTML(url) {
         logger.log(`🌐 Fetching main HTML from: ${url}`);
         
+        const errors = [];
+        
         // Try each proxy until one works
         for (let i = 0; i < this.proxies.length; i++) {
             const proxyIndex = (this.currentProxyIndex + i) % this.proxies.length;
@@ -74,10 +96,24 @@ export class ResourceFetcher {
                 await this.addDelay(200); // Longer delay for HTML fetch
                 
                 const proxyUrl = proxy.format(url);
-                const response = await fetch(proxyUrl);
+                
+                // Add timeout for fetch request
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+                
+                const response = await fetch(proxyUrl, {
+                    signal: controller.signal,
+                    headers: {
+                        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+                    }
+                });
+                
+                clearTimeout(timeoutId);
                 
                 if (!response.ok) {
-                    logger.warn(`⚠️ ${proxy.name} failed: ${response.status} ${response.statusText}`);
+                    const errorMsg = `${response.status} ${response.statusText}`;
+                    logger.warn(`⚠️ ${proxy.name} failed: ${errorMsg}`);
+                    errors.push(`${proxy.name}: ${errorMsg}`);
                     continue;
                 }
                 
@@ -97,7 +133,9 @@ export class ResourceFetcher {
                 
                 return { html, size };
             } catch (error) {
-                logger.warn(`❌ ${proxy.name} error: ${error.message}`);
+                const errorMsg = error.name === 'AbortError' ? 'Timeout (15s)' : error.message;
+                logger.warn(`❌ ${proxy.name} error: ${errorMsg}`);
+                errors.push(`${proxy.name}: ${errorMsg}`);
                 
                 // Special handling for CORS Anywhere
                 if (proxy.needsRequest && error.message.includes('403')) {
@@ -106,8 +144,16 @@ export class ResourceFetcher {
             }
         }
         
-        // All proxies failed
-        throw new Error('All proxy services failed. The website may be blocking requests or the proxies are down. Try a different URL.');
+        // All proxies failed - provide detailed error
+        const errorDetails = errors.slice(0, 3).join('\n• ');
+        throw new Error(
+            `All proxy services failed. This could be due to:\n\n` +
+            `• The website blocking proxy requests\n` +
+            `• Temporary proxy service outages\n` +
+            `• Network connectivity issues\n\n` +
+            `Recent errors:\n• ${errorDetails}\n\n` +
+            `Try a different URL or wait a few minutes and try again.`
+        );
     }
 
     /**

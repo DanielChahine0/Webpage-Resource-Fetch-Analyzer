@@ -12,7 +12,9 @@ export class ErrorDisplay {
         const errorMessage = document.getElementById('errorMessage');
         const resultsSection = document.getElementById('resultsSection');
 
+        // Preserve line breaks in error messages
         errorMessage.textContent = message;
+        errorMessage.style.whiteSpace = 'pre-wrap';
         errorSection.style.display = 'block';
         resultsSection.style.display = 'none';
     }
