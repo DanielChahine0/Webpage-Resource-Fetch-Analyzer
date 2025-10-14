@@ -36,15 +36,15 @@ The **Webpage Resource Fetch Analyzer** is a sophisticated web-based tool that p
 
 ## Core Features
 
-### 1. 🎯 Performance Score Calculator
+### 1. Performance Score Calculator
 The application provides a comprehensive 0-100 performance score similar to Google Lighthouse:
 
 - **Overall Score**: Weighted calculation based on multiple metrics
 - **Color-Coded Indicators**: 
-  - 🟢 Green (90-100): Excellent
-  - 🟠 Orange (75-89): Good
-  - 🟧 Dark Orange (50-74): Fair
-  - 🔴 Red (0-49): Poor
+  - Green (90-100): Excellent
+  - Orange (75-89): Good
+  - Dark Orange (50-74): Fair
+  - Red (0-49): Poor
 - **Detailed Breakdown**: Individual scores for:
   - Page Size (30% weight)
   - Request Count (25% weight)
@@ -53,7 +53,7 @@ The application provides a comprehensive 0-100 performance score similar to Goog
 - **Actionable Insights**: Identifies specific optimization opportunities
 - **Visual Display**: Prominent circular indicator with expandable details
 
-### 2. 🔍 URL Analysis
+### 2. URL Analysis
 Comprehensive webpage analysis capabilities:
 
 - **URL Flexibility**: Accepts multiple formats:
@@ -65,7 +65,7 @@ Comprehensive webpage analysis capabilities:
 - **URL Validation**: Ensures proper URL format
 - **Base URL Resolution**: Correctly resolves relative URLs
 
-### 3. ⚡ Fast Parallel Fetching
+### 3. Fast Parallel Fetching
 Optimized network performance:
 
 - **Concurrent Processing**: Downloads up to 10 resources simultaneously
@@ -74,7 +74,7 @@ Optimized network performance:
 - **Timeout Management**: 10-second timeout per resource
 - **Progress Tracking**: Real-time updates during fetching
 
-### 4. 💾 Smart Caching System
+### 4. Smart Caching System
 Efficient resource management:
 
 - **Duplicate Detection**: Tracks fetched resources by URL
@@ -82,7 +82,7 @@ Efficient resource management:
 - **Cache Clearing**: Manual cache reset between analyses
 - **Memory Efficient**: Uses JavaScript Map for O(1) lookups
 
-### 5. 📈 Dynamic Loading with Progress Tracking
+### 5. Dynamic Loading with Progress Tracking
 Real-time visual feedback:
 
 - **Progress Bar**: Visual indicator of completion percentage
@@ -92,7 +92,7 @@ Real-time visual feedback:
 - **Proxy Status**: Displays active CORS proxy service
 - **Live Updates**: Resources appear as they're fetched
 
-### 6. 🎨 Resource Detection
+### 6. Resource Detection
 Automatically detects and extracts:
 
 #### Images
@@ -127,7 +127,7 @@ Automatically detects and extracts:
 - Embedded content (`<embed>`, `<object>`)
 - Manifest files
 
-### 7. 📏 Size Calculation
+### 7. Size Calculation
 Accurate resource size measurement:
 
 - **Content-Length Headers**: Primary method for size detection
@@ -136,7 +136,7 @@ Accurate resource size measurement:
 - **Human-Readable Format**: Converts bytes to KB, MB, GB
 - **Total Aggregation**: Calculates cumulative page size
 
-### 8. 🌙 Dark Theme UI
+### 8. Dark Theme UI
 Modern, professional interface:
 
 - **Eye-Friendly**: Reduced eye strain for extended use
@@ -149,7 +149,7 @@ Modern, professional interface:
 - **Smooth Animations**: CSS transitions and transforms
 - **Accessibility**: ARIA labels and semantic HTML
 
-### 9. 📤 Export Functionality
+### 9. Export Functionality
 Data export capabilities:
 
 - **CSV Format**: Industry-standard format
@@ -162,7 +162,7 @@ Data export capabilities:
 - **Automatic Download**: Browser-triggered file download
 - **Custom Filename**: `resource-analysis.csv`
 
-### 10. 📊 Statistics Dashboard
+### 10. Statistics Dashboard
 Comprehensive at-a-glance metrics:
 
 - **Total Files**: Count of all detected resources
@@ -419,10 +419,10 @@ totalScore = (
 ```
 
 **Score Categories:**
-- **90-100**: 🟢 Excellent - Outstanding performance
-- **75-89**: 🟠 Good - Solid performance, minor improvements possible
-- **50-74**: 🟧 Fair - Moderate performance, improvements recommended
-- **0-49**: 🔴 Poor - Significant performance issues requiring attention
+- **90-100**: Excellent - Outstanding performance
+- **75-89**: Good - Solid performance, minor improvements possible
+- **50-74**: Fair - Moderate performance, improvements recommended
+- **0-49**: Poor - Significant performance issues requiring attention
 
 ### Example Score Calculations
 
@@ -1892,14 +1892,14 @@ The **Webpage Resource Fetch Analyzer** is a comprehensive, production-ready too
 
 ### Key Strengths
 
-✅ **Performance**: 5-10x faster than sequential approaches
-✅ **Reliability**: 8-proxy fallback system with 95%+ success rate
-✅ **Comprehensive**: Detects 10+ resource types with deep parsing
-✅ **User-Friendly**: Real-time progress, visual performance scores
-✅ **Production-Ready**: Deployed on multiple platforms with zero issues
-✅ **Maintainable**: Clean modular architecture with clear separation of concerns
-✅ **Well-Documented**: Extensive inline and external documentation
-✅ **Modern**: Uses latest web standards and best practices
+- **Performance**: 5-10x faster than sequential approaches
+- **Reliability**: 8-proxy fallback system with 95%+ success rate
+- **Comprehensive**: Detects 10+ resource types with deep parsing
+- **User-Friendly**: Real-time progress, visual performance scores
+- **Production-Ready**: Deployed on multiple platforms with zero issues
+- **Maintainable**: Clean modular architecture with clear separation of concerns
+- **Well-Documented**: Extensive inline and external documentation
+- **Modern**: Uses latest web standards and best practices
 
 ### Use Cases
 
