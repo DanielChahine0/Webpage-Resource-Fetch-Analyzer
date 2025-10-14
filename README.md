@@ -1,4 +1,4 @@
-# 🔍 Webpage Resource Fetch Analyzer
+# Webpage Resource Fetch Analyzer
 
 A web-based tool that analyzes and measures all resources loaded by a webpage, including HTML, CSS, JavaScript, images, videos, audio files, and more. This is a JavaScript/HTML conversion of the original Java Assignment1 project.
 
@@ -6,15 +6,15 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
 [![Deployment Ready](https://img.shields.io/badge/deployment-ready-brightgreen.svg)](DEPLOYMENT.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/DanielChahine0/Webpage-Resource-Fetch-Analyzer/pulls)
 
-## 🌐 Live Demo
+## Live Demo
 
 > 🚀 **Ready to deploy!** See [DEPLOYMENT.md](DEPLOYMENT.md) for deployment instructions to GitHub Pages, Netlify, Vercel, and more.
 
-## ⚡ Performance
+## Performance
 
 **Optimized for Speed**: Uses parallel fetching, caching, and timeout protection to analyze websites **5-10x faster** than sequential approaches.
 
-## 📋 Features
+## Features
 
 - **Performance Score Calculator**: Get an overall performance score (0-100) similar to Google Lighthouse
   - Analyzes page size, request count, resource distribution, and compression
@@ -39,7 +39,7 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
 - **Statistics Dashboard**: View total files, total size, and main HTML size at a glance
 - **Timeout Protection**: 10-second timeout prevents hanging on slow resources
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -68,7 +68,7 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
 
 3. Visit `http://localhost:8000` (if using a local server)
 
-## 📖 Usage
+## Usage
 
 1. Enter a URL in the input field (e.g., `https://example.com` or just `example.com`)
 2. Click the "Analyze" button
@@ -87,7 +87,7 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
 - `https://example.com`
 - `130.63.236.137` (IPv4 addresses supported)
 
-## 🛠️ Technical Details
+## Technical Details
 
 ### Project Structure
 
@@ -180,7 +180,7 @@ This web implementation mirrors the functionality of the original Java code:
 3. **Size Accuracy**: Some dynamic or protected resources may not be fetchable
 4. **Performance**: Larger sites with many resources may take time to analyze
 
-## 🚀 Deployment
+## Deployment
 
 This application is **production-ready** and can be deployed to various platforms:
 
@@ -211,34 +211,34 @@ See **[DEPLOYMENT.md](DEPLOYMENT.md)** for detailed deployment instructions.
    - Source: GitHub Actions
    - Done! Site will be live at `https://yourusername.github.io/repo-name/`
 
-## 📚 Documentation
+## Documentation
 
 - **[DEPLOYMENT.md](DEPLOYMENT.md)** - Complete deployment guide for all platforms
 - **[BUILD.md](BUILD.md)** - Build and optimization instructions
 - **[docs/](docs/)** - Additional technical documentation
 
-## �️ Technologies Used
+## Technologies Used
 
 - **Vanilla JavaScript (ES6+)** - No frameworks, pure performance
 - **CSS3** - Modern responsive design
 - **Fetch API** - Async resource fetching
 - **ES6 Modules** - Clean, modular architecture
 
-## �🙏 Acknowledgments
+## Acknowledgments
 
 - Original Java implementation concepts and algorithms
 - [AllOrigins](https://allorigins.win/) for CORS proxy service
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👤 Author
+## Author
 
 **Daniel Chahine**
 - GitHub: [@DanielChahine0](https://github.com/DanielChahine0)
 
-## 🤝 Contributing
+## Contributing
 
 Contributions, issues, and feature requests are welcome!
 
@@ -248,6 +248,6 @@ Contributions, issues, and feature requests are welcome!
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## ⭐ Show your support
+## Show your support
 
-Give a ⭐️ if this project helped you!
+Give a ⭐ if this project helped you!
