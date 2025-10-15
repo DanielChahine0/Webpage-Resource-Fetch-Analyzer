@@ -48,7 +48,7 @@ The performance score appears prominently at the top of analysis results:
 - Large circular score indicator with gradient background
 - Color-coded based on score category
 - Category label (Excellent/Good/Fair/Poor)
-- Info button (i) to toggle detailed breakdown
+- Info button (ℹ️) to toggle detailed breakdown
 - Expandable section showing:
   - Individual metric scores
   - Key performance metrics
@@ -59,7 +59,7 @@ The performance score appears prominently at the top of analysis results:
 
 1. Analyze any URL
 2. View the performance score at the top of results
-3. Click the info button (i) for detailed breakdown
+3. Click the info button (ℹ️) for detailed breakdown
 4. Review individual metric scores and recommendations
 
 ## Implementation

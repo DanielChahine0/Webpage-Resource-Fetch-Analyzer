@@ -6,7 +6,7 @@ This document contains potential feature ideas to enhance the Webpage Resource F
 
 ## Performance & Optimization Features
 
-### 1. Performance Score Calculator [IMPLEMENTED]
+### 1. **Performance Score Calculator** ✅
 Calculate an overall performance score (0-100) based on:
 - Total page size
 - Number of HTTP requests
@@ -20,17 +20,18 @@ Provide actionable recommendations:
 - "Minify CSS/JS files"
 - "Enable gzip/brotli compression"
 - "Reduce number of HTTP requests"
-- Consider using a CDN"
-- Convert images to WebP/AVIF format"
+- "Consider using a CDN"
+- "Convert images to WebP/AVIF format"
 
-### 3. Load Time Estimation [IMPLEMENTED]
+### 3. **Load Time Estimation** ✅
 Estimate page load time based on:
 - Resource sizes
 - Network speeds (3G, 4G, 5G, WiFi, Cable)
 - Number of parallel connections
 - Display estimated load times for different connection types
+**Status: Implemented** - See [LOAD_TIME_ESTIMATION.md](LOAD_TIME_ESTIMATION.md) for details
 
-### 4. Duplicate Resource Detection
+### 4. **Duplicate Resource Detection**
 - Identify resources loaded multiple times
 - Highlight duplicate files from different URLs
 - Calculate wasted bandwidth from duplicates
@@ -53,14 +54,15 @@ Estimate page load time based on:
 ### 7. **Waterfall Diagram**
 - Show loading sequence and timing
 - Visual representation like browser DevTools Network tab
-- Show dependencies and blocking resources
+- Display dependencies and blocking resources
 - Show parallel vs sequential loading
 
-### 8. Treemap Visualization [IMPLEMENTED]
+### 8. **Treemap Visualization** ✅
 - Display all resources as a treemap based on size
 - Color-code by resource type
 - Interactive zoom and exploration
 - Quickly identify largest resources visually
+**Status: Implemented** - See [TREEMAP_VISUALIZATION.md](TREEMAP_VISUALIZATION.md) for details
 
 ---
 

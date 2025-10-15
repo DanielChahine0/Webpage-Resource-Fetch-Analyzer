@@ -20,13 +20,13 @@ export class ResourceAnalyzer {
      * Main analysis function with dynamic updates and parallel fetching
      */
     async analyze(urlString, progressCallback, resourceCallback) {
-        console.log(`Starting analysis for: ${urlString}`);
+        console.log(`🚀 Starting analysis for: ${urlString}`);
         this.resources = [];
         this.totalSize = 0;
 
         // Normalize URL
         const baseURL = URLUtils.normalizeURL(urlString);
-        console.log(`Normalized URL: ${baseURL.href}`);
+        console.log(`🔗 Normalized URL: ${baseURL.href}`);
         
         // Fetch main HTML
         progressCallback('Fetching main HTML page...', 0, 1);
@@ -50,7 +50,7 @@ export class ResourceAnalyzer {
         const resourceURLs = ResourceParser.collectResourceURLs(html, baseURL);
         
         const totalURLs = resourceURLs.length;
-        console.log(`Found ${totalURLs} resources to fetch`);
+        console.log(`📋 Found ${totalURLs} resources to fetch`);
         progressCallback(`Found ${totalURLs} resources. Starting parallel download...`, 1, totalURLs + 1);
         
         // Fetch resources in parallel batches
@@ -88,7 +88,7 @@ export class ResourceAnalyzer {
             }
         }
 
-        console.log(`\nAnalysis Complete Summary:`);
+        console.log(`\n📊 Analysis Complete Summary:`);
         console.log(`   Total Resources: ${this.resources.length}`);
         console.log(`   Total Size: ${(this.totalSize / 1024 / 1024).toFixed(2)} MB`);
         console.log(`   Successful Fetches: ${successfulResources}/${totalURLs + 1}`);

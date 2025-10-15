@@ -11,35 +11,30 @@ export class LoadTimeEstimator {
             downloadSpeed: 0.75, // 750 Kbps = 0.75 Mbps
             latency: 100, // ms
             maxConnections: 6,
-            icon: '3G'
         },
         '4G': {
             name: '4G/LTE',
             downloadSpeed: 10, // 10 Mbps
             latency: 50, // ms
-            maxConnections: 6,
-            icon: '4G'
+            maxConnections: 6
         },
         '5G': {
             name: '5G',
             downloadSpeed: 100, // 100 Mbps
             latency: 10, // ms
-            maxConnections: 10,
-            icon: '5G'
+            maxConnections: 10
         },
         'WiFi': {
             name: 'WiFi',
             downloadSpeed: 50, // 50 Mbps
             latency: 20, // ms
-            maxConnections: 8,
-            icon: 'WiFi'
+            maxConnections: 8
         },
         'Cable': {
             name: 'Cable/Fiber',
             downloadSpeed: 200, // 200 Mbps
             latency: 10, // ms
-            maxConnections: 10,
-            icon: 'Fast'
+            maxConnections: 10
         }
     };
 
@@ -101,7 +96,6 @@ export class LoadTimeEstimator {
 
         return {
             profile: profile.name,
-            icon: profile.icon,
             downloadTime: Math.round(downloadTime),
             latencyTime: Math.round(initialLatency + additionalLatency),
             parseRenderTime: Math.round(parseRenderTime),
@@ -211,15 +205,15 @@ export class LoadTimeEstimator {
      */
     static getSpeedCategory(ms) {
         if (ms < 1000) {
-            return { label: 'Excellent', color: '#10b981', icon: 'Fast' };
+            return { label: 'Excellent', color: '#10b981' };
         } else if (ms < 2500) {
-            return { label: 'Good', color: '#3b82f6', icon: 'OK' };
+            return { label: 'Good', color: '#3b82f6' };
         } else if (ms < 5000) {
-            return { label: 'Fair', color: '#f59e0b', icon: 'Fair' };
+            return { label: 'Fair', color: '#f59e0b' };
         } else if (ms < 10000) {
-            return { label: 'Slow', color: '#ef4444', icon: 'Slow' };
+            return { label: 'Slow', color: '#ef4444' };
         } else {
-            return { label: 'Very Slow', color: '#991b1b', icon: 'Very Slow' };
+            return { label: 'Very Slow', color: '#991b1b' };
         }
     }
 }

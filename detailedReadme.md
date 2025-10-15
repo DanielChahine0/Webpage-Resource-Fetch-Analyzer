@@ -1,4 +1,4 @@
-# Webpage Resource Fetch Analyzer - Detailed Documentation
+# 📊 Webpage Resource Fetch Analyzer - Detailed Documentation
 
 ## Table of Contents
 - [Overview](#overview)

@@ -4,14 +4,14 @@ This folder contains concise documentation for the Webpage Resource Fetch Analyz
 
 ## Core Documentation
 
-### [CONSOLE_LOGGING.md](CONSOLE_LOGGING.md)
+### 🖥️ [CONSOLE_LOGGING.md](CONSOLE_LOGGING.md)
 **Console logging system and debugging**
-- Log categories
+- Emoji-based log categories
 - How to filter and read logs
 - Example log flows
 - Implementation details
 
-### [DEPLOYMENT.md](DEPLOYMENT.md)
+### 🚀 [DEPLOYMENT.md](DEPLOYMENT.md)
 **Deployment guide for all platforms**
 - Quick start with GitHub Pages (recommended)
 - Alternative platforms (Netlify, Vercel)
@@ -19,7 +19,7 @@ This folder contains concise documentation for the Webpage Resource Fetch Analyz
 - Custom domain setup
 - Production checklist
 
-### [PERFORMANCE_SCORE.md](PERFORMANCE_SCORE.md)
+### ⚡ [PERFORMANCE_SCORE.md](PERFORMANCE_SCORE.md)
 **Performance scoring feature**
 - How scores are calculated (0-100)
 - Four weighted metrics explained
@@ -27,7 +27,7 @@ This folder contains concise documentation for the Webpage Resource Fetch Analyz
 - Visual display features
 - Usage and benefits
 
-### [LOAD_TIME_ESTIMATION.md](LOAD_TIME_ESTIMATION.md)
+### ⏱️ [LOAD_TIME_ESTIMATION.md](LOAD_TIME_ESTIMATION.md)
 **Load time estimation feature**
 - Estimates across 5 network types (3G to Fiber)
 - Calculation methodology and components
@@ -35,7 +35,7 @@ This folder contains concise documentation for the Webpage Resource Fetch Analyz
 - Speed categories and visual display
 - Integration and usage guide
 
-### [PROXY_SERVICES.md](PROXY_SERVICES.md)
+### 🌐 [PROXY_SERVICES.md](PROXY_SERVICES.md)
 **CORS proxy services and rate limiting**
 - Eight proxy services in priority order
 - Smart fallback system
@@ -47,13 +47,13 @@ This folder contains concise documentation for the Webpage Resource Fetch Analyz
 
 ## Additional Documentation
 
-### [BUILD.md](BUILD.md)
+### 🔨 [BUILD.md](BUILD.md)
 Build and optimization instructions for production deployment
 
-### [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)
+### 🗂️ [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)
 Project file structure and organization
 
-### [FEATURE_IDEAS.md](FEATURE_IDEAS.md)
+### 💡 [FEATURE_IDEAS.md](FEATURE_IDEAS.md)
 Future feature ideas and enhancements
 
 ## Quick Reference

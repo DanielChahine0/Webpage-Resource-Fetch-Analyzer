@@ -86,7 +86,6 @@ export class LoadTimeDisplay {
         return `
             <div class="network-card" data-network="${key}">
                 <div class="network-header">
-                    <span class="network-icon">${data.icon}</span>
                     <div class="network-info">
                         <h4 class="network-name">${data.profile}</h4>
                         <span class="network-speed">${data.averageSpeed} Mbps</span>
@@ -98,7 +97,7 @@ export class LoadTimeDisplay {
                         ${totalTime}
                     </div>
                     <div class="load-time-badge" style="background: ${speedCategory.color};">
-                        ${speedCategory.icon} ${speedCategory.label}
+                        ${speedCategory.label}
                     </div>
                 </div>
 
@@ -133,11 +132,9 @@ export class LoadTimeDisplay {
 
                 <div class="network-details">
                     <div class="detail-item">
-                        <span class="detail-icon">Resources:</span>
                         <span class="detail-text">${data.resourceCount} resources</span>
                     </div>
                     <div class="detail-item">
-                        <span class="detail-icon">Connections:</span>
                         <span class="detail-text">${data.maxConnections} parallel connections</span>
                     </div>
                 </div>

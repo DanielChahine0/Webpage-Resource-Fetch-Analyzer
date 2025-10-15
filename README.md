@@ -8,7 +8,7 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
 
 ## Live Demo
 
-Ready to deploy! See [DEPLOYMENT.md](DEPLOYMENT.md) for deployment instructions to GitHub Pages, Netlify, Vercel, and more.
+> 🚀 **Ready to deploy!** See [DEPLOYMENT.md](DEPLOYMENT.md) for deployment instructions to GitHub Pages, Netlify, Vercel, and more.
 
 ## Performance
 
@@ -184,7 +184,7 @@ This web implementation mirrors the functionality of the original Java code:
 | `extractUrlsFromCss()` | `extractUrlsFromCSS()` |
 | HttpURLConnection | Fetch API with CORS proxy |
 
-## Limitations
+## ⚠️ Limitations
 
 1. **CORS Restrictions**: Some websites may block cross-origin requests
 2. **Proxy Dependency**: Relies on AllOrigins proxy service availability
