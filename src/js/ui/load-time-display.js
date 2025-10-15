@@ -40,7 +40,7 @@ export class LoadTimeDisplay {
 
         return `
             <div class="load-time-header">
-                <h3>⏱️ Estimated Load Times</h3>
+                <h3>Estimated Load Times</h3>
                 <p class="load-time-description">
                     Estimated page load times across different network connections based on resource sizes and parallel downloading
                 </p>
@@ -133,11 +133,11 @@ export class LoadTimeDisplay {
 
                 <div class="network-details">
                     <div class="detail-item">
-                        <span class="detail-icon">📦</span>
+                        <span class="detail-icon">Resources:</span>
                         <span class="detail-text">${data.resourceCount} resources</span>
                     </div>
                     <div class="detail-item">
-                        <span class="detail-icon">🔗</span>
+                        <span class="detail-icon">Connections:</span>
                         <span class="detail-text">${data.maxConnections} parallel connections</span>
                     </div>
                 </div>

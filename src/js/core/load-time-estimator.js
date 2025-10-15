@@ -11,35 +11,35 @@ export class LoadTimeEstimator {
             downloadSpeed: 0.75, // 750 Kbps = 0.75 Mbps
             latency: 100, // ms
             maxConnections: 6,
-            icon: '📱'
+            icon: '3G'
         },
         '4G': {
             name: '4G/LTE',
             downloadSpeed: 10, // 10 Mbps
             latency: 50, // ms
             maxConnections: 6,
-            icon: '📶'
+            icon: '4G'
         },
         '5G': {
             name: '5G',
             downloadSpeed: 100, // 100 Mbps
             latency: 10, // ms
             maxConnections: 10,
-            icon: '🚀'
+            icon: '5G'
         },
         'WiFi': {
             name: 'WiFi',
             downloadSpeed: 50, // 50 Mbps
             latency: 20, // ms
             maxConnections: 8,
-            icon: '📡'
+            icon: 'WiFi'
         },
         'Cable': {
             name: 'Cable/Fiber',
             downloadSpeed: 200, // 200 Mbps
             latency: 10, // ms
             maxConnections: 10,
-            icon: '⚡'
+            icon: 'Fast'
         }
     };
 
@@ -211,15 +211,15 @@ export class LoadTimeEstimator {
      */
     static getSpeedCategory(ms) {
         if (ms < 1000) {
-            return { label: 'Excellent', color: '#10b981', icon: '⚡' };
+            return { label: 'Excellent', color: '#10b981', icon: 'Fast' };
         } else if (ms < 2500) {
-            return { label: 'Good', color: '#3b82f6', icon: '✓' };
+            return { label: 'Good', color: '#3b82f6', icon: 'OK' };
         } else if (ms < 5000) {
-            return { label: 'Fair', color: '#f59e0b', icon: '⚠️' };
+            return { label: 'Fair', color: '#f59e0b', icon: 'Fair' };
         } else if (ms < 10000) {
-            return { label: 'Slow', color: '#ef4444', icon: '🐌' };
+            return { label: 'Slow', color: '#ef4444', icon: 'Slow' };
         } else {
-            return { label: 'Very Slow', color: '#991b1b', icon: '🚨' };
+            return { label: 'Very Slow', color: '#991b1b', icon: 'Very Slow' };
         }
     }
 }
