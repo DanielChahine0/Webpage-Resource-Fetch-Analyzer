@@ -5,6 +5,7 @@
 
 import { FormatUtils } from '../utils/format-utils.js';
 import { LoadTimeDisplay } from './load-time-display.js';
+import { TreemapDisplay } from './treemap-display.js';
 
 export class ResultsDisplay {
     constructor(analyzer) {
@@ -48,6 +49,7 @@ export class ResultsDisplay {
         const tbody = document.getElementById('resourcesBody');
         tbody.innerHTML = '';
         LoadTimeDisplay.clear();
+        TreemapDisplay.clear();
     }
 
     /**

@@ -26,6 +26,12 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
   - Detailed breakdown: latency, download time, and parse/render time
   - Speed categories with visual indicators
   - Considers parallel connections and resource prioritization
+- **Treemap Visualization**: Interactive visual representation of resource sizes
+  - Size-proportional rectangles for each resource
+  - Color-coded by resource type (HTML, CSS, JS, Images, etc.)
+  - Grouped by type with total size and file count
+  - Click resources for detailed information
+  - Toggle between grouped and flat views
 - **URL Analysis**: Input any webpage URL and analyze all its resources
 - **Fast Parallel Fetching**: Downloads up to 10 resources simultaneously
 - **Smart Caching**: Avoids re-downloading duplicate resources

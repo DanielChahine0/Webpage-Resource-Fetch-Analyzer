@@ -8,6 +8,7 @@ import { ProgressDisplay } from './progress-display.js';
 import { ResultsDisplay } from './results-display.js';
 import { PerformanceScoreDisplay } from './performance-score-display.js';
 import { LoadTimeDisplay } from './load-time-display.js';
+import { TreemapDisplay } from './treemap-display.js';
 import { ErrorDisplay } from './error-display.js';
 import { LoadingDisplay } from './loading-display.js';
 import { CSVExporter } from './csv-exporter.js';
@@ -94,6 +95,9 @@ export class UIController {
             
             // Display load time estimates
             LoadTimeDisplay.display(this.analyzer.resources);
+            
+            // Display treemap visualization
+            TreemapDisplay.display(this.analyzer.resources);
             
             this.progressDisplay.show(false);
         } catch (error) {
