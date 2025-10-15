@@ -19,6 +19,11 @@
     font-size: var(--font-size-2xl);
 }
 
+.export-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
 .export-btn {
     padding: var(--spacing-md) var(--spacing-lg);
     background: var(--accent-primary);
@@ -29,12 +34,23 @@
     font-size: var(--font-size-sm);
     transition: all var(--transition-base);
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
 }
 
 .export-btn:hover {
     background: var(--accent-hover);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
+}
+
+.export-btn-pdf {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.export-btn-pdf:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
 }
 
 .stats-cards {

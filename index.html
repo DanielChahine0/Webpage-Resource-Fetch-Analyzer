@@ -31,6 +31,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="manifest.json">
     
+    <!-- jsPDF Library for PDF Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="src/css/main.css">
 </head>
@@ -84,9 +88,14 @@
             <div id="resultsSection" class="results-section" style="display: none;">
                 <div class="results-header">
                     <h2>Analysis Results</h2>
-                    <button id="exportBtn" class="export-btn" aria-label="Export results to CSV">
-                        Export CSV
-                    </button>
+                    <div class="export-buttons">
+                        <button id="exportBtn" class="export-btn" aria-label="Export results to CSV">
+                            📊 Export CSV
+                        </button>
+                        <button id="exportPdfBtn" class="export-btn export-btn-pdf" aria-label="Export results to PDF">
+                            📄 Export PDF Report
+                        </button>
+                    </div>
                 </div>
                 
                 <!-- Performance Score Card -->

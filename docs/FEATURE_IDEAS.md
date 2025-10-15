@@ -14,7 +14,7 @@ Calculate an overall performance score (0-100) based on:
 - Compression usage
 Similar to Google Lighthouse scores.
 
-### 2. **Optimization Suggestions**
+### 2. **Optimization Suggestions** 
 Provide actionable recommendations:
 - "Compress images to reduce size by X%"
 - "Minify CSS/JS files"

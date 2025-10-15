@@ -46,7 +46,9 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
   - Resources in inline styles and `<style>` blocks
 - **Size Calculation**: Fetches and calculates the size of each resource
 - **Dark Theme UI**: Clean, modern interface that's easy on the eyes
-- **Export Functionality**: Export analysis results to CSV format (includes load time estimates)
+- **Export Functionality**: 
+  - Export analysis results to CSV format (includes load time estimates)
+  - **NEW!** Generate comprehensive PDF reports with charts, recommendations, and professional formatting
 - **Statistics Dashboard**: View total files, total size, and main HTML size at a glance
 - **Timeout Protection**: 10-second timeout prevents hanging on slow resources
 
@@ -85,11 +87,16 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
 2. Click the "Analyze" button
 3. Wait for the analysis to complete
 4. View the results including:
+   - Overall performance score with detailed breakdown
+   - Load time estimates for different network speeds
+   - Interactive treemap visualization
    - Total number of files
    - Total size of all resources
    - Main HTML file size
    - Detailed table of all resources with their names, types, sizes, and URLs
-5. Export results to CSV using the "Export CSV" button
+5. Export results:
+   - **CSV Export**: Click "📊 Export CSV" for spreadsheet-compatible data
+   - **PDF Report**: Click "📄 Export PDF Report" for comprehensive analysis reports with charts and recommendations
 
 ### Example URLs to Try
 
@@ -123,7 +130,8 @@ Webpage-Resource-Fetch-Analyzer/
 │   │   │   ├── performance-score-display.js
 │   │   │   ├── error-display.js
 │   │   │   ├── loading-display.js
-│   │   │   └── csv-exporter.js
+│   │   │   ├── csv-exporter.js
+│   │   │   └── pdf-exporter.js   # NEW: PDF report generation
 │   │   └── utils/             # Utility functions
 │   │       ├── url-utils.js
 │   │       └── format-utils.js
@@ -226,6 +234,8 @@ See **[DEPLOYMENT.md](DEPLOYMENT.md)** for detailed deployment instructions.
 
 - **[DEPLOYMENT.md](DEPLOYMENT.md)** - Complete deployment guide for all platforms
 - **[BUILD.md](BUILD.md)** - Build and optimization instructions
+- **[docs/PDF_EXPORT.md](docs/PDF_EXPORT.md)** - PDF report generation feature guide
+- **[docs/PDF_EXPORT_QUICK_START.md](docs/PDF_EXPORT_QUICK_START.md)** - Quick start for PDF reports
 - **[docs/](docs/)** - Additional technical documentation
 
 ## Technologies Used

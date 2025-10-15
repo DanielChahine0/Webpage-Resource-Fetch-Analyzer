@@ -12,6 +12,7 @@ import { TreemapDisplay } from './treemap-display.js';
 import { ErrorDisplay } from './error-display.js';
 import { LoadingDisplay } from './loading-display.js';
 import { CSVExporter } from './csv-exporter.js';
+import { PDFExporter } from './pdf-exporter.js';
 
 export class UIController {
     constructor() {
@@ -19,6 +20,7 @@ export class UIController {
         this.progressDisplay = new ProgressDisplay();
         this.resultsDisplay = new ResultsDisplay(this.analyzer);
         this.results = null;
+        this.performanceData = null;
         this.initEventListeners();
     }
 
@@ -28,6 +30,7 @@ export class UIController {
     initEventListeners() {
         const form = document.getElementById('analyzerForm');
         const exportBtn = document.getElementById('exportBtn');
+        const exportPdfBtn = document.getElementById('exportPdfBtn');
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -36,6 +39,14 @@ export class UIController {
 
         exportBtn.addEventListener('click', () => {
             CSVExporter.export(this.results, this.analyzer);
+        });
+
+        exportPdfBtn.addEventListener('click', async () => {
+            try {
+                await PDFExporter.export(this.results, this.analyzer, this.performanceData);
+            } catch (error) {
+                ErrorDisplay.show(`PDF Export Error: ${error.message}`);
+            }
         });
     }
 
@@ -90,8 +101,8 @@ export class UIController {
             
             // Store results and display performance score
             this.results = results;
-            const performanceData = this.analyzer.calculatePerformanceScore(results);
-            PerformanceScoreDisplay.display(performanceData);
+            this.performanceData = this.analyzer.calculatePerformanceScore(results);
+            PerformanceScoreDisplay.display(this.performanceData);
             
             // Display load time estimates
             LoadTimeDisplay.display(this.analyzer.resources);
