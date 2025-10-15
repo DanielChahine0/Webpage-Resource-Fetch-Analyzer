@@ -5,7 +5,7 @@
 
 @media (max-width: 768px) {
     header h1 {
-        font-size: 1.8rem;
+        font-size: var(--font-size-3xl);
     }
 
     .input-group {
@@ -22,7 +22,7 @@
 
     .results-header {
         flex-direction: column;
-        gap: 15px;
+        gap: var(--spacing-lg);
         align-items: stretch;
     }
 
@@ -31,7 +31,7 @@
     }
 
     .performance-score-card {
-        padding: 20px;
+        padding: var(--spacing-lg);
     }
 
     .score-circle {
@@ -41,16 +41,16 @@
     }
 
     .score-value {
-        font-size: 2.8rem;
+        font-size: var(--font-size-3xl);
     }
 
     .score-category {
-        font-size: 0.95rem;
+        font-size: var(--font-size-sm);
     }
 
     .breakdown-item {
         flex-direction: column;
         align-items: flex-start;
-        gap: 5px;
+        gap: var(--spacing-xs);
     }
 }

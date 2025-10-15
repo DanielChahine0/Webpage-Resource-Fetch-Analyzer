@@ -4,24 +4,27 @@
  */
 
 .error-section {
-    padding: 20px;
-    background: #3a2020;
-    border-radius: 8px;
-    border-left: 4px solid #cc0000;
+    padding: var(--spacing-lg);
+    background: var(--error-light);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--error);
     animation: fadeIn 0.5s;
+    border: 1px solid var(--error);
 }
 
 .error-content {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: var(--spacing-lg);
 }
 
 .error-icon {
-    font-size: 2rem;
+    font-size: var(--font-size-3xl);
+    color: var(--error);
 }
 
 #errorMessage {
-    color: #ff6666;
-    font-size: 1rem;
+    color: var(--error);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
 }

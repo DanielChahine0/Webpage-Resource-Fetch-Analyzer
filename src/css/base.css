@@ -10,11 +10,11 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #1a1a1a;
+    font-family: var(--font-family);
+    background: var(--bg-primary);
     min-height: 100vh;
     padding: 20px;
-    color: #e0e0e0;
+    color: var(--text-primary);
 }
 
 .container {

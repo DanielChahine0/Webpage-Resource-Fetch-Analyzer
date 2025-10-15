@@ -11,51 +11,64 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-lg);
 }
 
 .results-header h2 {
-    color: #e0e0e0;
+    color: var(--text-primary);
+    font-size: var(--font-size-2xl);
 }
 
 .export-btn {
-    padding: 10px 20px;
-    background: #3a3a3a;
-    color: #e0e0e0;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--accent-primary);
+    color: var(--text-primary);
     border: none;
-    border-radius: 6px;
+    border-radius: var(--radius-md);
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: background 0.3s;
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-base);
+    font-weight: 600;
 }
 
 .export-btn:hover {
-    background: #4a4a4a;
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .stats-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
 }
 
 .stat-card {
-    background: #3a3a3a;
-    color: #e0e0e0;
-    padding: 25px;
-    border-radius: 10px;
+    background: var(--surface-primary);
+    color: var(--text-primary);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-md);
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--surface-border);
+    transition: all var(--transition-base);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-primary);
 }
 
 .stat-value {
-    font-size: 2rem;
+    font-size: var(--font-size-3xl);
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: var(--spacing-xs);
+    color: var(--accent-primary);
 }
 
 .stat-label {
-    font-size: 0.9rem;
-    opacity: 0.9;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
 }

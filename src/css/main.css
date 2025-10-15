@@ -6,6 +6,9 @@
  * Created by: Daniel Chahine
  */
 
+/* Theme variables - must be imported first */
+@import 'theme.css';
+
 /* Base styles and animations */
 @import 'base.css';
 
