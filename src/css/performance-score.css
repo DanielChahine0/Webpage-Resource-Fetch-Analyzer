@@ -76,25 +76,25 @@
 }
 
 .score-excellent {
-    background: linear-gradient(135deg, var(--score-excellent) 0%, rgba(16, 185, 129, 0.8) 100%);
+    background: linear-gradient(135deg, var(--score-excellent) 0%, var(--score-excellent-gradient) 100%);
     border-color: var(--score-excellent);
     color: var(--score-excellent);
 }
 
 .score-good {
-    background: linear-gradient(135deg, var(--score-good) 0%, rgba(245, 158, 11, 0.8) 100%);
+    background: linear-gradient(135deg, var(--score-good) 0%, var(--score-good-gradient) 100%);
     border-color: var(--score-good);
     color: var(--score-good);
 }
 
 .score-fair {
-    background: linear-gradient(135deg, var(--score-fair) 0%, rgba(251, 146, 60, 0.8) 100%);
+    background: linear-gradient(135deg, var(--score-fair) 0%, var(--score-fair-gradient) 100%);
     border-color: var(--score-fair);
     color: var(--score-fair);
 }
 
 .score-poor {
-    background: linear-gradient(135deg, var(--score-poor) 0%, rgba(239, 68, 68, 0.8) 100%);
+    background: linear-gradient(135deg, var(--score-poor) 0%, var(--score-poor-gradient) 100%);
     border-color: var(--score-poor);
     color: var(--score-poor);
 }
