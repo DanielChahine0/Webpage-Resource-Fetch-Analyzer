@@ -214,7 +214,7 @@ main {
 
 /* Performance Score Card Styles */
 .performance-score-card {
-    background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+    background: #2a2a2a;
     border-radius: 15px;
     padding: 30px;
     margin-bottom: 30px;
@@ -275,7 +275,7 @@ main {
     inset: -12px;
     border-radius: 50%;
     padding: 4px;
-    background: linear-gradient(135deg, currentColor, transparent);
+    background: currentColor;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -284,25 +284,25 @@ main {
 }
 
 .score-excellent {
-    background: linear-gradient(135deg, #0cce6b 0%, #0a9e52 100%);
+    background: #0cce6b;
     border-color: #0cce6b;
     color: #0cce6b;
 }
 
 .score-good {
-    background: linear-gradient(135deg, #ffa400 0%, #d68600 100%);
+    background: #ffa400;
     border-color: #ffa400;
     color: #ffa400;
 }
 
 .score-fair {
-    background: linear-gradient(135deg, #ff8c00 0%, #cc6f00 100%);
+    background: #ff8c00;
     border-color: #ff8c00;
     color: #ff8c00;
 }
 
 .score-poor {
-    background: linear-gradient(135deg, #ff4e42 0%, #cc3e35 100%);
+    background: #ff4e42;
     border-color: #ff4e42;
     color: #ff4e42;
 }

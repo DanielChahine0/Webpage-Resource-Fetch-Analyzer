@@ -82,7 +82,7 @@ export class ResourceFetcher {
      * Fetches HTML content using CORS proxy with automatic fallback
      */
     async fetchHTML(url) {
-        logger.log(`🌐 Fetching main HTML from: ${url}`);
+        logger.log(`Fetching main HTML from: ${url}`);
         
         const errors = [];
         
@@ -92,7 +92,7 @@ export class ResourceFetcher {
             const proxy = this.proxies[proxyIndex];
             
             try {
-                logger.log(`🔄 Trying ${proxy.name}...`);
+                logger.log(`Trying ${proxy.name}...`);
                 await this.addDelay(200); // Longer delay for HTML fetch
                 
                 const proxyUrl = proxy.format(url);
@@ -112,7 +112,7 @@ export class ResourceFetcher {
                 
                 if (!response.ok) {
                     const errorMsg = `${response.status} ${response.statusText}`;
-                    logger.warn(`⚠️ ${proxy.name} failed: ${errorMsg}`);
+                    logger.warn(`WARNING: ${proxy.name} failed: ${errorMsg}`);
                     errors.push(`${proxy.name}: ${errorMsg}`);
                     continue;
                 }
@@ -126,7 +126,7 @@ export class ResourceFetcher {
                 }
                 
                 const size = new Blob([html]).size;
-                logger.log(`✅ HTML fetched successfully using ${proxy.name} (${(size / 1024).toFixed(2)} KB)`);
+                logger.log(`HTML fetched successfully using ${proxy.name} (${(size / 1024).toFixed(2)} KB)`);
                 
                 // Remember successful proxy for next time
                 this.currentProxyIndex = proxyIndex;
@@ -139,7 +139,7 @@ export class ResourceFetcher {
                 
                 // Special handling for CORS Anywhere
                 if (proxy.needsRequest && error.message.includes('403')) {
-                    logger.warn(`⚠️ CORS Anywhere requires manual access request at: ${proxy.url}`);
+                    logger.warn(`WARNING: CORS Anywhere requires manual access request at: ${proxy.url}`);
                 }
             }
         }
@@ -161,7 +161,7 @@ export class ResourceFetcher {
      */
     async tryDirectFetch(url, timeout = 5000) {
         try {
-            logger.log(`🎯 Attempting direct fetch: ${url}`);
+            logger.log(`Attempting direct fetch: ${url}`);
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), timeout);
             
@@ -177,15 +177,15 @@ export class ResourceFetcher {
                 const contentLength = response.headers.get('content-length');
                 if (contentLength) {
                     const size = parseInt(contentLength, 10);
-                    logger.log(`✅ Direct fetch successful: ${(size / 1024).toFixed(2)} KB`);
+                    logger.log(`Direct fetch successful: ${(size / 1024).toFixed(2)} KB`);
                     return size;
                 }
-                logger.log(`⚠️ Direct fetch OK but no content-length header`);
+                logger.log(`WARNING: Direct fetch OK but no content-length header`);
             } else {
-                logger.log(`⚠️ Direct fetch failed: ${response.status}`);
+                logger.log(`WARNING: Direct fetch failed: ${response.status}`);
             }
         } catch (e) {
-            logger.log(`⚠️ Direct fetch error: ${e.message} - will try proxy`);
+            logger.log(`WARNING: Direct fetch error: ${e.message} - will try proxy`);
         }
         return null;
     }
@@ -197,11 +197,11 @@ export class ResourceFetcher {
         // Check cache first
         if (this.sizeCache.has(url)) {
             const cachedSize = this.sizeCache.get(url);
-            logger.log(`💾 Cache hit for: ${url.substring(0, 60)}... (${(cachedSize / 1024).toFixed(2)} KB)`);
+            logger.log(`Cache hit for: ${url.substring(0, 60)}... (${(cachedSize / 1024).toFixed(2)} KB)`);
             return cachedSize;
         }
         
-        logger.log(`📥 Fetching: ${url.substring(0, 80)}...`);
+        logger.log(`Fetching: ${url.substring(0, 80)}...`);
         
         // Try direct fetch first (no rate limits)
         const directSize = await this.tryDirectFetch(url);
@@ -211,7 +211,7 @@ export class ResourceFetcher {
         }
         
         // Fallback to proxy with rate limiting and retries
-        logger.log(`🔄 Falling back to proxy for: ${url.substring(0, 60)}...`);
+        logger.log(`Falling back to proxy for: ${url.substring(0, 60)}...`);
         for (let attempt = 0; attempt <= retries; attempt++) {
             // Try current working proxy
             const proxy = this.proxies[this.currentProxyIndex];
@@ -244,7 +244,7 @@ export class ResourceFetcher {
                         size = blob.size;
                     }
                     
-                    logger.log(`✅ Proxy fetch successful using ${proxy.name}: ${(size / 1024).toFixed(2)} KB`);
+                    logger.log(`Proxy fetch successful using ${proxy.name}: ${(size / 1024).toFixed(2)} KB`);
                     
                     // Cache the result
                     this.sizeCache.set(url, size);
@@ -252,33 +252,33 @@ export class ResourceFetcher {
                 } else if (response.status === 429 && attempt < retries) {
                     // Rate limited - wait longer before retry
                     const backoffDelay = Math.min(1000 * Math.pow(2, attempt), 5000);
-                    logger.warn(`⚠️ Rate limited for ${url.substring(0, 60)}..., retrying in ${backoffDelay}ms... (attempt ${attempt + 1}/${retries + 1})`);
+                    logger.warn(`WARNING: Rate limited for ${url.substring(0, 60)}..., retrying in ${backoffDelay}ms... (attempt ${attempt + 1}/${retries + 1})`);
                     await new Promise(resolve => setTimeout(resolve, backoffDelay));
                     continue;
                 } else {
-                    logger.warn(`⚠️ ${proxy.name} returned status ${response.status} for ${url.substring(0, 60)}...`);
+                    logger.warn(`WARNING: ${proxy.name} returned status ${response.status} for ${url.substring(0, 60)}...`);
                     
                     // Try next proxy on failure
                     if (attempt < retries) {
                         this.currentProxyIndex = (this.currentProxyIndex + 1) % this.proxies.length;
-                        logger.log(`🔄 Switching to ${this.proxies[this.currentProxyIndex].name}`);
+                        logger.log(`Switching to ${this.proxies[this.currentProxyIndex].name}`);
                     }
                 }
             } catch (e) {
                 if (e.name === 'AbortError') {
-                    logger.warn(`⏱️ Timeout fetching ${url.substring(0, 60)}...`);
+                    logger.warn(`Timeout fetching ${url.substring(0, 60)}...`);
                 } else if (attempt < retries) {
-                    logger.warn(`⚠️ Failed to fetch ${url.substring(0, 60)}... (attempt ${attempt + 1}/${retries + 1}):`, e.message);
+                    logger.warn(`WARNING: Failed to fetch ${url.substring(0, 60)}... (attempt ${attempt + 1}/${retries + 1}):`, e.message);
                     await new Promise(resolve => setTimeout(resolve, 500 * (attempt + 1)));
                     continue;
                 } else {
-                    logger.warn(`❌ Failed to fetch ${url.substring(0, 60)}...:`, e.message);
+                    logger.warn(`ERROR: Failed to fetch ${url.substring(0, 60)}...:`, e.message);
                 }
             }
         }
         
         // Cache failed fetches as 0 to avoid retrying
-        logger.log(`💀 Caching failed fetch as 0 for: ${url.substring(0, 60)}...`);
+        logger.log(`Caching failed fetch as 0 for: ${url.substring(0, 60)}...`);
         this.sizeCache.set(url, 0);
         return 0;
     }
@@ -287,7 +287,7 @@ export class ResourceFetcher {
      * Fetches multiple resources in parallel with concurrency limit
      */
     async fetchResourcesBatch(urls, concurrency = 3) {
-        logger.log(`📦 Processing batch of ${urls.length} resources with concurrency ${concurrency}`);
+        logger.log(`Processing batch of ${urls.length} resources with concurrency ${concurrency}`);
         const results = [];
         const executing = [];
         
@@ -315,7 +315,7 @@ export class ResourceFetcher {
         
         const batchResults = await Promise.all(results);
         const successCount = batchResults.filter(r => r.size > 0).length;
-        logger.log(`✅ Batch complete: ${successCount}/${urls.length} resources fetched successfully`);
+        logger.log(`Batch complete: ${successCount}/${urls.length} resources fetched successfully`);
         return batchResults;
     }
 
@@ -325,7 +325,7 @@ export class ResourceFetcher {
     clearCache() {
         const cacheSize = this.sizeCache.size;
         this.sizeCache.clear();
-        console.log(`🗑️ Cache cleared (removed ${cacheSize} entries)`);
+        console.log(`Cache cleared (removed ${cacheSize} entries)`);
     }
 
     /**
@@ -346,7 +346,7 @@ export class ResourceFetcher {
     switchProxy() {
         this.currentProxyIndex = (this.currentProxyIndex + 1) % this.proxies.length;
         const proxy = this.proxies[this.currentProxyIndex];
-        logger.log(`🔄 Switched to ${proxy.name}`);
+        logger.log(`Switched to ${proxy.name}`);
         return proxy.name;
     }
 }

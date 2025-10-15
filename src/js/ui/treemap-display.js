@@ -192,7 +192,7 @@ export class TreemapDisplay {
         toggleContainer.className = 'treemap-toggle-container';
         toggleContainer.innerHTML = `
             <button id="treemapToggle" class="treemap-toggle-btn">
-                <span class="toggle-icon">🔄</span>
+                <span class="toggle-icon">⇄</span>
                 <span class="toggle-text">Toggle View</span>
             </button>
         `;

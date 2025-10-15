@@ -718,8 +718,8 @@ class UIController {
         // Update the score display
         scoreContainer.innerHTML = `
             <div class="performance-header">
-                <h3>⚡ Performance Score</h3>
-                <button class="info-btn" id="scoreInfoBtn" title="View detailed breakdown">ℹ️</button>
+                <h3>Performance Score</h3>
+                <button class="info-btn" id="scoreInfoBtn" title="View detailed breakdown">i</button>
             </div>
             <div class="score-circle ${colorClass}">
                 <div class="score-value">${score}</div>
@@ -728,19 +728,19 @@ class UIController {
             <div class="score-breakdown" id="scoreBreakdown" style="display: none;">
                 <h4>Score Breakdown:</h4>
                 <div class="breakdown-item">
-                    <span class="breakdown-label">📦 Page Size (30%)</span>
+                    <span class="breakdown-label">Page Size (30%)</span>
                     <span class="breakdown-value">${breakdown.pageSize}/100</span>
                 </div>
                 <div class="breakdown-item">
-                    <span class="breakdown-label">🔢 Request Count (25%)</span>
+                    <span class="breakdown-label">Request Count (25%)</span>
                     <span class="breakdown-value">${breakdown.requestCount}/100</span>
                 </div>
                 <div class="breakdown-item">
-                    <span class="breakdown-label">📊 Resource Distribution (25%)</span>
+                    <span class="breakdown-label">Resource Distribution (25%)</span>
                     <span class="breakdown-value">${breakdown.resourceDistribution}/100</span>
                 </div>
                 <div class="breakdown-item">
-                    <span class="breakdown-label">🗜️ Compression/Optimization (20%)</span>
+                    <span class="breakdown-label">Compression/Optimization (20%)</span>
                     <span class="breakdown-value">${breakdown.compression}/100</span>
                 </div>
                 <div class="metrics-info">
