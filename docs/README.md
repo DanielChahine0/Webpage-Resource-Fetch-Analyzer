@@ -27,6 +27,14 @@ This folder contains concise documentation for the Webpage Resource Fetch Analyz
 - Visual display features
 - Usage and benefits
 
+### ⏱️ [LOAD_TIME_ESTIMATION.md](LOAD_TIME_ESTIMATION.md)
+**Load time estimation feature**
+- Estimates across 5 network types (3G to Fiber)
+- Calculation methodology and components
+- Parallel download simulation
+- Speed categories and visual display
+- Integration and usage guide
+
 ### 🌐 [PROXY_SERVICES.md](PROXY_SERVICES.md)
 **CORS proxy services and rate limiting**
 - Eight proxy services in priority order

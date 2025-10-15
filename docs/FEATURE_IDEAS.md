@@ -6,7 +6,7 @@ This document contains potential feature ideas to enhance the Webpage Resource F
 
 ## Performance & Optimization Features
 
-### 1. **Performance Score Calculator**
+### 1. **Performance Score Calculator** ✅
 Calculate an overall performance score (0-100) based on:
 - Total page size
 - Number of HTTP requests
@@ -23,12 +23,13 @@ Provide actionable recommendations:
 - "Consider using a CDN"
 - "Convert images to WebP/AVIF format"
 
-### 3. **Load Time Estimation**
+### 3. **Load Time Estimation** ✅
 Estimate page load time based on:
 - Resource sizes
 - Network speeds (3G, 4G, 5G, WiFi, Cable)
 - Number of parallel connections
 - Display estimated load times for different connection types
+**Status: Implemented** - See [LOAD_TIME_ESTIMATION.md](LOAD_TIME_ESTIMATION.md) for details
 
 ### 4. **Duplicate Resource Detection**
 - Identify resources loaded multiple times

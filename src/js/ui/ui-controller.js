@@ -7,6 +7,7 @@ import { ResourceAnalyzer } from '../core/resource-analyzer.js';
 import { ProgressDisplay } from './progress-display.js';
 import { ResultsDisplay } from './results-display.js';
 import { PerformanceScoreDisplay } from './performance-score-display.js';
+import { LoadTimeDisplay } from './load-time-display.js';
 import { ErrorDisplay } from './error-display.js';
 import { LoadingDisplay } from './loading-display.js';
 import { CSVExporter } from './csv-exporter.js';
@@ -90,6 +91,10 @@ export class UIController {
             this.results = results;
             const performanceData = this.analyzer.calculatePerformanceScore(results);
             PerformanceScoreDisplay.display(performanceData);
+            
+            // Display load time estimates
+            LoadTimeDisplay.display(this.analyzer.resources);
+            
             this.progressDisplay.show(false);
         } catch (error) {
             ErrorDisplay.show(`Error: ${error.message}`);

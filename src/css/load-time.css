@@ -1,0 +1,305 @@
+/**
+ * Load Time Estimates Styles
+ * Styling for network load time estimates display
+ */
+
+/* Load Time Container */
+#loadTimeEstimates {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Load Time Header */
+.load-time-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.load-time-header h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.load-time-description {
+    color: #a0aec0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Network Cards Grid */
+.load-time-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Network Card */
+.network-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.network-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+/* Network Header */
+.network-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.network-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.network-info {
+    flex: 1;
+}
+
+.network-name {
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 0 0 0.25rem 0;
+    font-weight: 600;
+}
+
+.network-speed {
+    font-size: 0.85rem;
+    color: #a0aec0;
+}
+
+/* Load Time Main Display */
+.load-time-main {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.load-time-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.load-time-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Load Time Breakdown */
+.load-time-breakdown {
+    margin-bottom: 1.25rem;
+}
+
+.breakdown-bar {
+    display: flex;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+}
+
+.breakdown-segment {
+    transition: all 0.3s ease;
+}
+
+.breakdown-segment:hover {
+    opacity: 0.8;
+}
+
+.breakdown-latency {
+    background: #3b82f6;
+}
+
+.breakdown-download {
+    background: #8b5cf6;
+}
+
+.breakdown-parse {
+    background: #10b981;
+}
+
+.breakdown-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+}
+
+.breakdown-label {
+    color: #a0aec0;
+}
+
+.breakdown-value {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Network Details */
+.network-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #a0aec0;
+    font-size: 0.85rem;
+}
+
+.detail-icon {
+    font-size: 1rem;
+}
+
+.detail-text {
+    flex: 1;
+}
+
+/* Load Time Footer */
+.load-time-footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.load-time-note {
+    color: #a0aec0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid #3b82f6;
+}
+
+.load-time-note strong {
+    color: #fff;
+}
+
+/* Legend */
+.load-time-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.legend-title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #a0aec0;
+    font-size: 0.85rem;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #loadTimeEstimates {
+        padding: 1.5rem;
+    }
+
+    .load-time-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .load-time-header h3 {
+        font-size: 1.5rem;
+    }
+
+    .load-time-value {
+        font-size: 2rem;
+    }
+
+    .network-card {
+        padding: 1.25rem;
+    }
+
+    .load-time-legend {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .load-time-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .load-time-description {
+        font-size: 0.875rem;
+    }
+
+    .network-icon {
+        font-size: 1.5rem;
+    }
+
+    .network-name {
+        font-size: 1rem;
+    }
+
+    .load-time-value {
+        font-size: 1.75rem;
+    }
+
+    .breakdown-item,
+    .detail-item {
+        font-size: 0.8rem;
+    }
+}

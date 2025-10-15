@@ -21,6 +21,11 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
   - Color-coded indicators (Excellent/Good/Fair/Poor)
   - Detailed breakdown of individual metrics
   - Actionable insights for optimization
+- **Load Time Estimation**: See estimated load times across different network connections
+  - 5 network profiles: 3G, 4G/LTE, 5G, WiFi, and Cable/Fiber
+  - Detailed breakdown: latency, download time, and parse/render time
+  - Speed categories with visual indicators
+  - Considers parallel connections and resource prioritization
 - **URL Analysis**: Input any webpage URL and analyze all its resources
 - **Fast Parallel Fetching**: Downloads up to 10 resources simultaneously
 - **Smart Caching**: Avoids re-downloading duplicate resources
@@ -35,7 +40,7 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
   - Resources in inline styles and `<style>` blocks
 - **Size Calculation**: Fetches and calculates the size of each resource
 - **Dark Theme UI**: Clean, modern interface that's easy on the eyes
-- **Export Functionality**: Export analysis results to CSV format
+- **Export Functionality**: Export analysis results to CSV format (includes load time estimates)
 - **Statistics Dashboard**: View total files, total size, and main HTML size at a glance
 - **Timeout Protection**: 10-second timeout prevents hanging on slow resources
 

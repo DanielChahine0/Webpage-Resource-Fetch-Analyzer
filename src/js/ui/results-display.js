@@ -4,6 +4,7 @@
  */
 
 import { FormatUtils } from '../utils/format-utils.js';
+import { LoadTimeDisplay } from './load-time-display.js';
 
 export class ResultsDisplay {
     constructor(analyzer) {
@@ -46,6 +47,7 @@ export class ResultsDisplay {
     clearTable() {
         const tbody = document.getElementById('resourcesBody');
         tbody.innerHTML = '';
+        LoadTimeDisplay.clear();
     }
 
     /**
