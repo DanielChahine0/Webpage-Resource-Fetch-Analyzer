@@ -61,40 +61,26 @@
     transition: all 0.5s ease;
 }
 
-.score-circle::before {
-    content: '';
-    position: absolute;
-    inset: -12px;
-    border-radius: var(--radius-full);
-    padding: 4px;
-    background: linear-gradient(135deg, currentColor, transparent);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    opacity: 0.3;
-}
-
 .score-excellent {
-    background: linear-gradient(135deg, var(--score-excellent) 0%, var(--score-excellent-gradient) 100%);
+    background: var(--surface-primary);
     border-color: var(--score-excellent);
     color: var(--score-excellent);
 }
 
 .score-good {
-    background: linear-gradient(135deg, var(--score-good) 0%, var(--score-good-gradient) 100%);
+    background: var(--surface-primary);
     border-color: var(--score-good);
     color: var(--score-good);
 }
 
 .score-fair {
-    background: linear-gradient(135deg, var(--score-fair) 0%, var(--score-fair-gradient) 100%);
+    background: var(--surface-primary);
     border-color: var(--score-fair);
     color: var(--score-fair);
 }
 
 .score-poor {
-    background: linear-gradient(135deg, var(--score-poor) 0%, var(--score-poor-gradient) 100%);
+    background: var(--surface-primary);
     border-color: var(--score-poor);
     color: var(--score-poor);
 }

@@ -42,39 +42,35 @@
     --info: #3b82f6;
     --info-light: rgba(59, 130, 246, 0.1);
     
-    /* Performance Score Colors */
-    --score-excellent: #10b981;
-    --score-excellent-gradient: rgba(16, 185, 129, 0.8);
-    --score-good: #f59e0b;
-    --score-good-gradient: rgba(245, 158, 11, 0.8);
-    --score-fair: #fb923c;
-    --score-fair-gradient: rgba(251, 146, 60, 0.8);
-    --score-poor: #ef4444;
-    --score-poor-gradient: rgba(239, 68, 68, 0.8);
+    /* Performance Score Colors - Simplified & Darker */
+    --score-excellent: #0d9668;
+    --score-good: #4f7a3d;
+    --score-fair: #b87a2e;
+    --score-poor: #b83030;
     
-    /* Network Speed Colors */
-    --network-fast: #3b82f6;
-    --network-latency: #6366f1;
-    --network-download: #8b5cf6;
-    --network-parse: #10b981;
+    /* Network Speed Colors - Simplified & Darker */
+    --network-fast: #4a5fb0;
+    --network-latency: #4a5fb0;
+    --network-download: #4a5fb0;
+    --network-parse: #4a5fb0;
     
-    /* Resource Type Colors */
-    --type-html: #ef4444;
-    --type-html-bg: rgba(239, 68, 68, 0.1);
-    --type-css: #3b82f6;
-    --type-css-bg: rgba(59, 130, 246, 0.1);
-    --type-js: #f59e0b;
-    --type-js-bg: rgba(245, 158, 11, 0.1);
-    --type-image: #8b5cf6;
-    --type-image-bg: rgba(139, 92, 246, 0.1);
-    --type-video: #ec4899;
-    --type-video-bg: rgba(236, 72, 153, 0.1);
-    --type-audio: #06b6d4;
-    --type-audio-bg: rgba(6, 182, 212, 0.1);
-    --type-font: #10b981;
-    --type-font-bg: rgba(16, 185, 129, 0.1);
-    --type-other: #6366f1;
-    --type-other-bg: rgba(99, 102, 241, 0.1);
+    /* Resource Type Colors - Simplified & Darker */
+    --type-html: #4a5fb0;
+    --type-html-bg: rgba(74, 95, 176, 0.12);
+    --type-css: #4a5fb0;
+    --type-css-bg: rgba(74, 95, 176, 0.12);
+    --type-js: #4a5fb0;
+    --type-js-bg: rgba(74, 95, 176, 0.12);
+    --type-image: #5a6a8a;
+    --type-image-bg: rgba(90, 106, 138, 0.12);
+    --type-video: #5a6a8a;
+    --type-video-bg: rgba(90, 106, 138, 0.12);
+    --type-audio: #5a6a8a;
+    --type-audio-bg: rgba(90, 106, 138, 0.12);
+    --type-font: #5a6a8a;
+    --type-font-bg: rgba(90, 106, 138, 0.12);
+    --type-other: #6a6a6a;
+    --type-other-bg: rgba(106, 106, 106, 0.12);
     
     /* Shadow and Effects */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);

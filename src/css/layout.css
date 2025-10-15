@@ -13,10 +13,7 @@ header {
 header h1 {
     font-size: var(--font-size-4xl);
     margin-bottom: var(--spacing-md);
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--accent-primary);
     font-weight: 700;
 }
 
