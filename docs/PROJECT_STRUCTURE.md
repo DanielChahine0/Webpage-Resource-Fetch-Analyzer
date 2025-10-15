@@ -68,7 +68,7 @@ Webpage-Resource-Fetch-Analyzer/
 
 ---
 
-## 🎯 Module Descriptions
+## Module Descriptions
 
 ### JavaScript Modules
 
@@ -170,34 +170,34 @@ mv index-new.html index.html
 
 ### Advantages of Modular Structure
 
-✅ **Better Organization**
+**Better Organization**
 - Clear separation of concerns
 - Easy to find specific functionality
 - Logical file structure
 
-✅ **Maintainability**
+**Maintainability**
 - Smaller, focused files
 - Easier to debug
 - Simpler to update individual components
 
-✅ **Scalability**
+**Scalability**
 - Easy to add new features
 - Can reuse modules
 - Better for team collaboration
 
-✅ **Performance**
+**Performance**
 - Browser can cache individual modules
 - Potential for tree-shaking (future optimization)
 - Better for modern build tools
 
-✅ **Development Experience**
+**Development Experience**
 - ES6 modules (import/export)
 - Better IDE support
 - Easier testing
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Running the Application
 
@@ -221,7 +221,7 @@ mv index-new.html index.html
 
 ---
 
-## 📝 File Naming Conventions
+## File Naming Conventions
 
 - **Kebab-case** for file names: `resource-analyzer.js`
 - **PascalCase** for class names: `ResourceAnalyzer`
@@ -230,7 +230,7 @@ mv index-new.html index.html
 
 ---
 
-## 🔧 Future Improvements
+## Future Improvements
 
 Potential enhancements to the structure:
 
@@ -261,7 +261,7 @@ Potential enhancements to the structure:
 
 ---
 
-## 📊 Module Dependencies
+## Module Dependencies
 
 ### Dependency Graph
 
@@ -288,17 +288,17 @@ app.js
 
 ---
 
-## 🎉 Summary
+## Summary
 
 The project has been reorganized from a monolithic structure (single HTML, CSS, and JS files) into a modular, maintainable architecture with clear separation of concerns.
 
 **Key Benefits:**
-- ✅ Better code organization
-- ✅ Easier maintenance and debugging
-- ✅ Scalable architecture
-- ✅ Modern ES6 modules
-- ✅ Professional project structure
-- ✅ Backwards compatible (old files still work)
+- Better code organization
+- Easier maintenance and debugging
+- Scalable architecture
+- Modern ES6 modules
+- Professional project structure
+- Backwards compatible (old files still work)
 
 **Next Steps:**
 1. Test the new modular version (`index-new.html`)

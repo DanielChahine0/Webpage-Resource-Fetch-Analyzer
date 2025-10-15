@@ -8,27 +8,27 @@ The Load Time Estimation feature provides detailed predictions of how long a web
 ### Network Profiles
 The estimator includes 5 common network connection types:
 
-1. **3G Mobile** 📱
+1. **3G Mobile**
    - Download Speed: 0.75 Mbps (750 Kbps)
    - Latency: 100ms
    - Max Parallel Connections: 6
 
-2. **4G/LTE** 📶
+2. **4G/LTE**
    - Download Speed: 10 Mbps
    - Latency: 50ms
    - Max Parallel Connections: 6
 
-3. **5G** 🚀
+3. **5G**
    - Download Speed: 100 Mbps
    - Latency: 10ms
    - Max Parallel Connections: 10
 
-4. **WiFi** 📡
+4. **WiFi**
    - Download Speed: 50 Mbps
    - Latency: 20ms
    - Max Parallel Connections: 8
 
-5. **Cable/Fiber** ⚡
+5. **Cable/Fiber**
    - Download Speed: 200 Mbps
    - Latency: 10ms
    - Max Parallel Connections: 10
@@ -67,13 +67,13 @@ Estimated based on resource types and sizes:
 
 Load times are categorized for easy understanding:
 
-| Time Range | Category | Icon | Color |
-|------------|----------|------|-------|
-| < 1s | Excellent | ⚡ | Green |
-| 1s - 2.5s | Good | ✓ | Blue |
-| 2.5s - 5s | Fair | ⚠️ | Orange |
-| 5s - 10s | Slow | 🐌 | Red |
-| > 10s | Very Slow | 🚨 | Dark Red |
+| Time Range | Category | Color |
+|------------|----------|-------|
+| < 1s | Excellent | Green |
+| 1s - 2.5s | Good | Blue |
+| 2.5s - 5s | Fair | Orange |
+| 5s - 10s | Slow | Red |
+| > 10s | Very Slow | Dark Red |
 
 ## Visual Display
 
@@ -189,10 +189,10 @@ Potential improvements for future versions:
 
 ## Browser Compatibility
 
-- ✅ Chrome/Edge (latest)
-- ✅ Firefox (latest)
-- ✅ Safari (latest)
-- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
 
 Uses standard ES6+ features with no dependencies on external libraries.
 

@@ -71,7 +71,7 @@ export class ResourceFetcher {
         
         if (timeSinceLastRequest < ms) {
             const delayNeeded = ms - timeSinceLastRequest;
-            logger.log(`⏳ Rate limiting: waiting ${delayNeeded}ms before next request`);
+            logger.log(`[RATELIMIT] Rate limiting: waiting ${delayNeeded}ms before next request`);
             await new Promise(resolve => setTimeout(resolve, delayNeeded));
         }
         
@@ -82,7 +82,7 @@ export class ResourceFetcher {
      * Fetches HTML content using CORS proxy with automatic fallback
      */
     async fetchHTML(url) {
-        logger.log(`🌐 Fetching main HTML from: ${url}`);
+        logger.log(`[FETCH] Fetching main HTML from: ${url}`);
         
         const errors = [];
         

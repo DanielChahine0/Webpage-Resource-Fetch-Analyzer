@@ -1,8 +1,8 @@
-# 🛠️ Build and Optimization Guide
+# Build and Optimization Guide
 
 This document provides instructions for optimizing the Webpage Resource Fetch Analyzer for production deployment.
 
-## 📦 Production Checklist
+## Production Checklist
 
 Before deploying to production, follow these steps:
 
@@ -115,7 +115,7 @@ For Apache servers, create `.htaccess`:
 </IfModule>
 ```
 
-## 🚀 Build Scripts (Optional)
+## Build Scripts (Optional)
 
 If you want to automate the build process, create a `package.json`:
 
@@ -143,7 +143,7 @@ Then install dependencies:
 npm install --save-dev cssnano-cli
 ```
 
-## ⚡ Performance Tips
+## Performance Tips
 
 ### 1. Lazy Loading (Future Enhancement)
 
@@ -200,7 +200,7 @@ if ('serviceWorker' in navigator) {
 }
 ```
 
-## 📊 Performance Benchmarks
+## Performance Benchmarks
 
 Target performance metrics:
 
@@ -215,7 +215,7 @@ Test with:
 - [WebPageTest](https://www.webpagetest.org/)
 - Chrome DevTools Lighthouse
 
-## 🔍 Code Quality
+## Code Quality
 
 ### ESLint Configuration (Optional)
 
@@ -280,7 +280,7 @@ The application uses modern JavaScript (ES6+) and should work on:
 
 For older browsers, consider using [Babel](https://babeljs.io/) to transpile.
 
-## 🗂️ File Size Analysis
+## File Size Analysis
 
 Current estimated sizes (unminified):
 
@@ -294,42 +294,42 @@ Total (after gzip)    ~15 KB
 
 Target: Keep total under 100 KB (gzipped) for optimal performance.
 
-## 📝 Deployment Preparation Script
+## Deployment Preparation Script
 
 Create a deployment script `prepare-deploy.sh` (Bash) or `prepare-deploy.ps1` (PowerShell):
 
 **PowerShell version** (`prepare-deploy.ps1`):
 ```powershell
 # Deployment preparation script
-Write-Host "🚀 Preparing for deployment..." -ForegroundColor Green
+Write-Host "Preparing for deployment..." -ForegroundColor Green
 
 # Step 1: Disable development logging
-Write-Host "📝 Disabling development logging..." -ForegroundColor Yellow
+Write-Host "Disabling development logging..." -ForegroundColor Yellow
 $loggerFile = "src\js\utils\logger.js"
 (Get-Content $loggerFile) -replace 'const isDevelopment = true', 'const isDevelopment = false' | Set-Content $loggerFile
 
 # Step 2: Run tests (if available)
-Write-Host "🧪 Running tests..." -ForegroundColor Yellow
+Write-Host "Running tests..." -ForegroundColor Yellow
 # Add your test commands here
 
 # Step 3: Check for TODO comments
-Write-Host "🔍 Checking for TODO comments..." -ForegroundColor Yellow
+Write-Host "Checking for TODO comments..." -ForegroundColor Yellow
 Get-ChildItem -Recurse -Include *.js,*.css | Select-String "TODO" | ForEach-Object {
     Write-Host "  Found: $($_.Filename):$($_.LineNumber)" -ForegroundColor Red
 }
 
 # Step 4: Verify critical files exist
-Write-Host "✅ Verifying critical files..." -ForegroundColor Yellow
+Write-Host "Verifying critical files..." -ForegroundColor Yellow
 $criticalFiles = @("index.html", "manifest.json", "LICENSE", "README.md", "DEPLOYMENT.md")
 foreach ($file in $criticalFiles) {
     if (Test-Path $file) {
-        Write-Host "  ✓ $file" -ForegroundColor Green
+        Write-Host "  [OK] $file" -ForegroundColor Green
     } else {
-        Write-Host "  ✗ $file missing!" -ForegroundColor Red
+        Write-Host "  [MISSING] $file" -ForegroundColor Red
     }
 }
 
-Write-Host "✨ Preparation complete! Ready to deploy." -ForegroundColor Green
+Write-Host "Preparation complete! Ready to deploy." -ForegroundColor Green
 ```
 
 Run before deploying:
@@ -337,7 +337,7 @@ Run before deploying:
 .\prepare-deploy.ps1
 ```
 
-## 🎯 Next Steps
+## Next Steps
 
 After optimization:
 
