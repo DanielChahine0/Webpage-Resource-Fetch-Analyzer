@@ -45,14 +45,6 @@
     box-shadow: var(--shadow-md);
 }
 
-.export-btn-pdf {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.export-btn-pdf:hover {
-    background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
-}
-
 .stats-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
