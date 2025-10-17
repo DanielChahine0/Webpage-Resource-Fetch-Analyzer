@@ -34,8 +34,8 @@
     font-size: var(--font-size-base);
     font-weight: bold;
     color: var(--text-primary);
-    background: var(--accent-primary);
-    border: none;
+    background: var(--surface-secondary);
+    border: 1px solid var(--surface-border);
     border-radius: var(--radius-md);
     cursor: pointer;
     transition: all var(--transition-base);
@@ -43,7 +43,8 @@
 }
 
 #analyzeBtn:hover {
-    background: var(--accent-hover);
+    background: var(--surface-hover);
+    border-color: var(--accent-primary);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }

@@ -37,7 +37,7 @@
 
 .progress-bar {
     height: 100%;
-    background: var(--accent-primary);
+    background: var(--surface-hover);
     width: 0%;
     transition: width var(--transition-base);
     display: flex;
@@ -47,6 +47,7 @@
     color: var(--text-primary);
     font-size: var(--font-size-sm);
     font-weight: bold;
+    border-right: 2px solid var(--surface-border);
 }
 
 .time-estimate {
@@ -67,7 +68,7 @@
 }
 
 #timeEstimate {
-    color: var(--accent-primary);
+    color: var(--text-primary);
     font-weight: bold;
     font-size: var(--font-size-base);
 }
@@ -90,6 +91,6 @@
 }
 
 #proxyName {
-    color: var(--accent-primary);
+    color: var(--text-primary);
     font-weight: bold;
 }
