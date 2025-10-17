@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicate Detection Test Page</title>
+    
+    <!-- Intentionally load jQuery multiple times -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- Intentionally load Bootstrap CSS multiple times -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    
+    <!-- Load the same image from different paths -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Duplicate Detection Test Page</h1>
+    
+    <div class="test-section">
+        <h2>Purpose</h2>
+        <p>This page intentionally loads resources multiple times to test the duplicate detection feature.</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Intentional Duplicates</h2>
+        <ul>
+            <li><strong>jQuery</strong> - Loaded from 2 different CDNs</li>
+            <li><strong>Bootstrap CSS</strong> - Loaded from 2 different CDNs</li>
+        </ul>
+    </div>
+    
+    <div class="test-section">
+        <h2>Expected Results</h2>
+        <p>When analyzing this page, the Duplicate Detection feature should identify:</p>
+        <ul>
+            <li>2 duplicate resource groups</li>
+            <li>jQuery duplicates (~85 KB wasted)</li>
+            <li>Bootstrap CSS duplicates (~150 KB wasted)</li>
+            <li>High or Medium severity warnings</li>
+            <li>Consolidation suggestions for JavaScript and CSS</li>
+        </ul>
+    </div>
+    
+    <div class="test-section">
+        <h2>How to Test</h2>
+        <ol>
+            <li>Save this file locally or host it on a server</li>
+            <li>Open the Webpage Resource Fetch Analyzer</li>
+            <li>Enter this page's URL</li>
+            <li>Click "Analyze"</li>
+            <li>Scroll to the "Duplicate Resource Detection" section</li>
+            <li>Verify duplicates are detected correctly</li>
+        </ol>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test Status</h2>
+        <p id="jquery-status">jQuery loaded: <span style="color: green;">✓</span></p>
+        <p id="bootstrap-status">Bootstrap CSS loaded: <span style="color: green;">✓</span></p>
+    </div>
+    
+    <script>
+        // Verify jQuery is loaded
+        if (typeof jQuery !== 'undefined') {
+            console.log('✓ jQuery loaded successfully');
+            console.log('jQuery version:', jQuery.fn.jquery);
+        }
+        
+        // Log page info
+        console.log('Test page loaded with intentional duplicates for testing');
+        console.log('Total scripts:', document.scripts.length);
+        console.log('Total stylesheets:', document.styleSheets.length);
+    </script>
+</body>
+</html>

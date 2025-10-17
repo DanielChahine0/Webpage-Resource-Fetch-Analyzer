@@ -28,7 +28,7 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
   - Request reduction strategies
   - CDN usage analysis
   - HTTPS security checks
-  - Duplicate resource detection
+  - **Duplicate resource detection** - Identify resources loaded multiple times and calculate wasted bandwidth
   - Potential bandwidth savings calculations
 - **Load Time Estimation**: See estimated load times across different network connections
   - 5 network profiles: 3G, 4G/LTE, 5G, WiFi, and Cable/Fiber
@@ -245,6 +245,8 @@ See **[DEPLOYMENT.md](DEPLOYMENT.md)** for detailed deployment instructions.
 - **[BUILD.md](BUILD.md)** - Build and optimization instructions
 - **[docs/PDF_EXPORT.md](docs/PDF_EXPORT.md)** - PDF report generation feature guide
 - **[docs/PDF_EXPORT_QUICK_START.md](docs/PDF_EXPORT_QUICK_START.md)** - Quick start for PDF reports
+- **[docs/DUPLICATE_DETECTION.md](docs/DUPLICATE_DETECTION.md)** - Duplicate resource detection feature guide
+- **[docs/DUPLICATE_DETECTION_QUICK_START.md](docs/DUPLICATE_DETECTION_QUICK_START.md)** - Quick start for duplicate detection
 - **[docs/](docs/)** - Additional technical documentation
 
 ## Technologies Used
