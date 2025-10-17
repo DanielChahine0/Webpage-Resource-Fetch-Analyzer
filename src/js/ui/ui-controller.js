@@ -9,6 +9,8 @@ import { ResultsDisplay } from './results-display.js';
 import { PerformanceScoreDisplay } from './performance-score-display.js';
 import { LoadTimeDisplay } from './load-time-display.js';
 import { TreemapDisplay } from './treemap-display.js';
+import { OptimizationSuggester } from '../core/optimization-suggester.js';
+import { OptimizationSuggestionsDisplay } from './optimization-suggestions-display.js';
 import { ErrorDisplay } from './error-display.js';
 import { LoadingDisplay } from './loading-display.js';
 import { CSVExporter } from './csv-exporter.js';
@@ -19,6 +21,8 @@ export class UIController {
         this.analyzer = new ResourceAnalyzer();
         this.progressDisplay = new ProgressDisplay();
         this.resultsDisplay = new ResultsDisplay(this.analyzer);
+        this.optimizationSuggester = new OptimizationSuggester();
+        this.optimizationDisplay = new OptimizationSuggestionsDisplay();
         this.results = null;
         this.performanceData = null;
         this.initEventListeners();
@@ -106,6 +110,14 @@ export class UIController {
             
             // Display load time estimates
             LoadTimeDisplay.display(this.analyzer.resources);
+            
+            // Generate and display optimization suggestions
+            const suggestions = this.optimizationSuggester.analyzeSuggestions(
+                this.analyzer.resources,
+                results
+            );
+            const suggestionsSummary = this.optimizationSuggester.getSummary();
+            this.optimizationDisplay.display(suggestions, suggestionsSummary);
             
             // Display treemap visualization
             TreemapDisplay.display(this.analyzer.resources);

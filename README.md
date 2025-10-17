@@ -21,6 +21,15 @@ A web-based tool that analyzes and measures all resources loaded by a webpage, i
   - Color-coded indicators (Excellent/Good/Fair/Poor)
   - Detailed breakdown of individual metrics
   - Actionable insights for optimization
+- **Optimization Suggestions**: Receive prioritized, actionable recommendations
+  - Image compression and modern format suggestions
+  - Code minification opportunities
+  - Server compression recommendations
+  - Request reduction strategies
+  - CDN usage analysis
+  - HTTPS security checks
+  - Duplicate resource detection
+  - Potential bandwidth savings calculations
 - **Load Time Estimation**: See estimated load times across different network connections
   - 5 network profiles: 3G, 4G/LTE, 5G, WiFi, and Cable/Fiber
   - Detailed breakdown: latency, download time, and parse/render time
