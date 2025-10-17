@@ -11,6 +11,8 @@ import { LoadTimeDisplay } from './load-time-display.js';
 import { TreemapDisplay } from './treemap-display.js';
 import { OptimizationSuggester } from '../core/optimization-suggester.js';
 import { OptimizationSuggestionsDisplay } from './optimization-suggestions-display.js';
+import { DuplicateDetector } from '../core/duplicate-detector.js';
+import { DuplicateDisplay } from './duplicate-display.js';
 import { ErrorDisplay } from './error-display.js';
 import { LoadingDisplay } from './loading-display.js';
 import { CSVExporter } from './csv-exporter.js';
@@ -121,6 +123,10 @@ export class UIController {
             
             // Display treemap visualization
             TreemapDisplay.display(this.analyzer.resources);
+            
+            // Display duplicate detection analysis
+            const duplicateAnalysis = DuplicateDetector.analyzeDuplicates(this.analyzer.resources);
+            DuplicateDisplay.display(duplicateAnalysis);
             
             this.progressDisplay.show(false);
         } catch (error) {

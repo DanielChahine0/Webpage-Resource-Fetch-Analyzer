@@ -6,6 +6,7 @@
 import { FormatUtils } from '../utils/format-utils.js';
 import { LoadTimeDisplay } from './load-time-display.js';
 import { TreemapDisplay } from './treemap-display.js';
+import { DuplicateDisplay } from './duplicate-display.js';
 
 export class ResultsDisplay {
     constructor(analyzer) {
@@ -50,6 +51,7 @@ export class ResultsDisplay {
         tbody.innerHTML = '';
         LoadTimeDisplay.clear();
         TreemapDisplay.clear();
+        DuplicateDisplay.clear();
     }
 
     /**

@@ -1,0 +1,424 @@
+/**
+ * Duplicate Detection Styles
+ * Styling for duplicate resource detection feature
+ */
+
+/* Container */
+#duplicateDetection {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--surface-border);
+    display: none;
+}
+
+/* Header */
+.duplicate-header {
+    margin-bottom: 1.5rem;
+}
+
+.duplicate-header h3 {
+    margin: 0 0 1rem 0;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+}
+
+/* Summary */
+.duplicate-summary {
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.duplicate-summary.success {
+    background: var(--success-light);
+    color: var(--success);
+    border: 1px solid var(--success);
+}
+
+.duplicate-summary.warning {
+    background: var(--warning-light);
+    color: var(--warning);
+    border: 1px solid var(--warning);
+}
+
+.duplicate-icon {
+    font-size: 1.3rem;
+}
+
+/* No Issues Message */
+.duplicate-no-issues {
+    padding: 2rem;
+    text-align: center;
+    background: var(--success-light);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--success);
+    margin-top: 1rem;
+}
+
+.duplicate-no-issues p {
+    margin: 0.5rem 0;
+    color: var(--success);
+    font-size: 1rem;
+}
+
+/* Statistics Cards */
+.duplicate-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.duplicate-stat-card {
+    background: var(--bg-primary);
+    padding: 1.25rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--surface-border);
+    text-align: center;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.duplicate-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.duplicate-stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+}
+
+.duplicate-stat-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.duplicate-stat-description {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Duplicate Groups */
+.duplicate-groups {
+    margin: 2rem 0;
+}
+
+.duplicate-groups h4 {
+    margin: 0 0 1rem 0;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+.duplicate-group {
+    background: var(--bg-primary);
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--surface-border);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: border-color var(--transition-base);
+}
+
+.duplicate-group.severity-high {
+    border-left: 4px solid var(--error);
+}
+
+.duplicate-group.severity-medium {
+    border-left: 4px solid var(--warning);
+}
+
+.duplicate-group.severity-low {
+    border-left: 4px solid var(--info);
+}
+
+/* Group Header */
+.duplicate-group-header {
+    padding: 1rem;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid var(--surface-border);
+}
+
+.severity-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.severity-badge.severity-high {
+    background: var(--error-light);
+    color: var(--error);
+    border: 1px solid var(--error);
+}
+
+.severity-badge.severity-medium {
+    background: var(--warning-light);
+    color: var(--warning);
+    border: 1px solid var(--warning);
+}
+
+.severity-badge.severity-low {
+    background: var(--info-light);
+    color: var(--info);
+    border: 1px solid var(--info);
+}
+
+.duplicate-filename {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+}
+
+/* Group Details */
+.duplicate-group-details {
+    padding: 1rem;
+}
+
+.duplicate-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--surface-border);
+}
+
+.duplicate-detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.wasted-bandwidth {
+    color: var(--error);
+    font-weight: bold;
+}
+
+/* URLs Container */
+.duplicate-urls-container {
+    padding: 0 1rem 1rem 1rem;
+}
+
+.duplicate-urls-toggle {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background var(--transition-base);
+    text-align: left;
+}
+
+.duplicate-urls-toggle:hover {
+    background: var(--surface-hover);
+}
+
+.duplicate-urls-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    margin-top: 0.5rem;
+}
+
+.duplicate-urls-list.expanded {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.duplicate-url-item {
+    padding: 0.5rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.url-index {
+    color: var(--text-muted);
+    font-weight: 600;
+    min-width: 30px;
+}
+
+.url-text {
+    color: var(--text-primary);
+    word-break: break-all;
+}
+
+/* Suggestions */
+.duplicate-suggestions {
+    margin: 2rem 0;
+}
+
+.duplicate-suggestions h4 {
+    margin: 0 0 1rem 0;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+.duplicate-suggestion {
+    background: var(--bg-primary);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--surface-border);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.duplicate-suggestion.priority-high {
+    border-left: 4px solid var(--error);
+    background: var(--error-light);
+}
+
+.duplicate-suggestion.priority-medium {
+    border-left: 4px solid var(--warning);
+    background: var(--warning-light);
+}
+
+.duplicate-suggestion.priority-low {
+    border-left: 4px solid var(--info);
+    background: var(--info-light);
+}
+
+.suggestion-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.priority-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.priority-badge.priority-high {
+    background: var(--error);
+    color: white;
+}
+
+.priority-badge.priority-medium {
+    background: var(--warning);
+    color: white;
+}
+
+.priority-badge.priority-low {
+    background: var(--info);
+    color: white;
+}
+
+.suggestion-category {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.suggestion-title {
+    margin: 0.5rem 0;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.suggestion-description {
+    margin: 0.75rem 0;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.suggestion-action,
+.suggestion-impact {
+    margin: 0.75rem 0;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+}
+
+.suggestion-action strong,
+.suggestion-impact strong {
+    color: var(--accent-primary);
+}
+
+.suggestion-resources {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+}
+
+.suggestion-resources strong {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.suggestion-resources ul {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.5rem;
+}
+
+.suggestion-resources li {
+    color: var(--text-muted);
+    margin: 0.25rem 0;
+    font-size: 0.85rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .duplicate-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .duplicate-stat-value {
+        font-size: 1.5rem;
+    }
+    
+    .duplicate-group-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .duplicate-filename {
+        white-space: normal;
+        word-break: break-word;
+    }
+}
+
+/* Dark theme adjustments */
+body.dark-theme #duplicateDetection {
+    background: var(--bg-secondary);
+}
+
+body.dark-theme .duplicate-stat-card {
+    background: var(--bg-primary);
+}
+
+body.dark-theme .duplicate-group {
+    background: var(--bg-primary);
+}
