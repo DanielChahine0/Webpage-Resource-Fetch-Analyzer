@@ -21,6 +21,7 @@
 @import 'performance-score.css';
 @import 'load-time.css';
 @import 'treemap.css';
+@import 'resource-chart.css';
 @import 'optimization-suggestions.css';
 @import 'duplicate.css';
 @import 'results.css';
