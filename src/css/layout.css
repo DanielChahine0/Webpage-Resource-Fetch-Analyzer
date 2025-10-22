@@ -28,13 +28,16 @@ main {
     padding: var(--spacing-lg);
     box-shadow: none;
     border: none;
+    flex: 1;
 }
 
 footer {
     text-align: center;
     color: var(--text-tertiary);
-    margin-top: var(--spacing-md);
-    padding: var(--spacing-sm);
+    margin-top: auto;
+    padding: var(--spacing-xl) var(--spacing-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
 }
 
 footer p {
@@ -46,4 +49,6 @@ footer p {
     font-size: var(--font-size-xs);
     font-style: italic;
     color: var(--text-muted);
+    max-width: 800px;
+    margin: var(--spacing-xs) auto 0;
 }

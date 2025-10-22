@@ -3,9 +3,29 @@
  * Media queries for mobile and tablet devices
  */
 
+/* Tablet View (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+/* Mobile View (up to 768px) */
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
     header h1 {
         font-size: var(--font-size-3xl);
+    }
+
+    main {
+        padding: var(--spacing-md);
     }
 
     .input-group {
@@ -26,8 +46,14 @@
         align-items: stretch;
     }
 
+    .export-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
     .export-btn {
         width: 100%;
+        justify-content: center;
     }
 
     .performance-score-card {
@@ -52,5 +78,60 @@
         flex-direction: column;
         align-items: flex-start;
         gap: var(--spacing-xs);
+    }
+
+    footer {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    footer p {
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* Small Mobile View (up to 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+
+    header h1 {
+        font-size: var(--font-size-2xl);
+    }
+
+    .subtitle {
+        font-size: var(--font-size-xs);
+    }
+
+    main {
+        padding: var(--spacing-sm);
+        border-radius: var(--radius-sm);
+    }
+
+    #resourcesTable {
+        font-size: var(--font-size-xs);
+    }
+
+    #resourcesTable th,
+    #resourcesTable td {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .score-circle {
+        width: 120px;
+        height: 120px;
+        border-width: 4px;
+    }
+
+    .score-value {
+        font-size: var(--font-size-2xl);
+    }
+
+    footer {
+        padding: var(--spacing-md) var(--spacing-xs);
+    }
+
+    .note {
+        font-size: 0.65rem;
     }
 }
