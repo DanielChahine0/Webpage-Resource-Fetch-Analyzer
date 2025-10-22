@@ -125,6 +125,9 @@ export class UIController {
             // Display treemap visualization
             TreemapDisplay.display(this.analyzer.resources);
             
+            // Display resource type chart
+            ResourceChartDisplay.display(this.analyzer.resources);
+            
             // Display duplicate detection analysis
             const duplicateAnalysis = DuplicateDetector.analyzeDuplicates(this.analyzer.resources);
             DuplicateDisplay.display(duplicateAnalysis);
