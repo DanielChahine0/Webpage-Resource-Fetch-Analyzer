@@ -43,40 +43,40 @@
     --info-light: rgba(255, 255, 255, 0.08);
     
     /* Performance Score Colors - Simplified & Darker */
-    --score-excellent: #0d9668;
-    --score-good: #4f7a3d;
-    --score-fair: #b87a2e;
-    --score-poor: #b83030;
+    --score-excellent: #10b981;
+    --score-good: #84cc16;
+    --score-fair: #f59e0b;
+    --score-poor: #ef4444;
     
     /* Network Speed Colors - Simplified & Darker */
-    --network-fast: #4a5fb0;
-    --network-latency: #4a5fb0;
-    --network-download: #4a5fb0;
-    --network-parse: #4a5fb0;
+    --network-fast: #666666;
+    --network-latency: #666666;
+    --network-download: #666666;
+    --network-parse: #666666;
     
     /* Resource Type Colors - Simplified & Darker */
-    --type-html: #4a5fb0;
-    --type-html-bg: rgba(74, 95, 176, 0.12);
-    --type-css: #4a5fb0;
-    --type-css-bg: rgba(74, 95, 176, 0.12);
-    --type-js: #4a5fb0;
-    --type-js-bg: rgba(74, 95, 176, 0.12);
-    --type-image: #5a6a8a;
-    --type-image-bg: rgba(90, 106, 138, 0.12);
-    --type-video: #5a6a8a;
-    --type-video-bg: rgba(90, 106, 138, 0.12);
-    --type-audio: #5a6a8a;
-    --type-audio-bg: rgba(90, 106, 138, 0.12);
-    --type-font: #5a6a8a;
-    --type-font-bg: rgba(90, 106, 138, 0.12);
-    --type-other: #6a6a6a;
-    --type-other-bg: rgba(106, 106, 106, 0.12);
+    --type-html: #888888;
+    --type-html-bg: rgba(136, 136, 136, 0.08);
+    --type-css: #888888;
+    --type-css-bg: rgba(136, 136, 136, 0.08);
+    --type-js: #888888;
+    --type-js-bg: rgba(136, 136, 136, 0.08);
+    --type-image: #888888;
+    --type-image-bg: rgba(136, 136, 136, 0.08);
+    --type-video: #888888;
+    --type-video-bg: rgba(136, 136, 136, 0.08);
+    --type-audio: #888888;
+    --type-audio-bg: rgba(136, 136, 136, 0.08);
+    --type-font: #888888;
+    --type-font-bg: rgba(136, 136, 136, 0.08);
+    --type-other: #666666;
+    --type-other-bg: rgba(102, 102, 102, 0.08);
     
-    /* Shadow and Effects */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.6);
+    /* Shadow and Effects - Minimal for Clean Look */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 6px 12px rgba(0, 0, 0, 0.5);
     
     /* Border Radius */
     --radius-sm: 6px;
