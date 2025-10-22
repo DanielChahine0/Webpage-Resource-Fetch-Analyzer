@@ -8,17 +8,17 @@
  */
 
 :root {
-    /* Primary Colors */
+    /* Primary Colors - Consistent Dark Theme */
     --bg-primary: #1a1a1a;
-    --bg-secondary: #212121;
-    --bg-tertiary: #242424;
-    --bg-elevated: #2a2a2a;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #1a1a1a;
+    --bg-elevated: #1f1f1f;
     
-    /* Surface Colors */
-    --surface-primary: #242424;
-    --surface-secondary: #2a2a2a;
-    --surface-hover: #333333;
-    --surface-border: rgba(99, 102, 241, 0.15);
+    /* Surface Colors - Consistent Dark Theme */
+    --surface-primary: #1a1a1a;
+    --surface-secondary: #1f1f1f;
+    --surface-hover: #252525;
+    --surface-border: rgba(255, 255, 255, 0.1);
     
     /* Text Colors */
     --text-primary: #ffffff;
@@ -26,11 +26,11 @@
     --text-tertiary: #d1d5db;
     --text-muted: #9ca3af;
     
-    /* Accent Colors */
-    --accent-primary: #6366f1;
-    --accent-secondary: #818cf8;
-    --accent-hover: #4f46e5;
-    --accent-light: rgba(99, 102, 241, 0.1);
+    /* Accent Colors - White Theme */
+    --accent-primary: #ffffff;
+    --accent-secondary: #e5e5e5;
+    --accent-hover: #f5f5f5;
+    --accent-light: rgba(255, 255, 255, 0.1);
     
     /* Status Colors */
     --success: #10b981;
