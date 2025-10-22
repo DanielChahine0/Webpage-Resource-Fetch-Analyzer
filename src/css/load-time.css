@@ -7,10 +7,10 @@
 #loadTimeEstimates {
     margin: var(--spacing-md) 0;
     padding: var(--spacing-md);
-    background: var(--surface-primary);
+    background: var(--surface-secondary);
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--surface-border);
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Load Time Header */
