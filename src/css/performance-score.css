@@ -4,12 +4,12 @@
  */
 
 .performance-score-card {
-    background: var(--surface-primary);
+    background: var(--surface-secondary);
     border-radius: var(--radius-md);
     padding: var(--spacing-md);
     margin-bottom: var(--spacing-md);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--surface-border);
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .performance-header {
@@ -56,31 +56,31 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    box-shadow: var(--shadow-md);
-    border: 6px solid;
+    box-shadow: none;
+    border: 4px solid;
     transition: all 0.5s ease;
 }
 
 .score-excellent {
-    background: var(--surface-primary);
+    background: var(--bg-primary);
     border-color: var(--score-excellent);
     color: var(--score-excellent);
 }
 
 .score-good {
-    background: var(--surface-primary);
+    background: var(--bg-primary);
     border-color: var(--score-good);
     color: var(--score-good);
 }
 
 .score-fair {
-    background: var(--surface-primary);
+    background: var(--bg-primary);
     border-color: var(--score-fair);
     color: var(--score-fair);
 }
 
 .score-poor {
-    background: var(--surface-primary);
+    background: var(--bg-primary);
     border-color: var(--score-poor);
     color: var(--score-poor);
 }

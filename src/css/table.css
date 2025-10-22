@@ -6,8 +6,8 @@
 .resources-table-container {
     overflow-x: auto;
     border-radius: var(--radius-md);
-    border: 1px solid var(--surface-border);
-    background: var(--surface-primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--surface-secondary);
 }
 
 #resourcesTable {
@@ -24,13 +24,13 @@
     text-align: left;
     font-weight: 600;
     color: var(--text-primary);
-    border-bottom: 2px solid var(--surface-border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     font-size: var(--font-size-sm);
 }
 
 #resourcesTable td {
     padding: var(--spacing-md) var(--spacing-lg);
-    border-bottom: 1px solid var(--surface-border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     color: var(--text-primary);
     font-size: var(--font-size-sm);
 }
