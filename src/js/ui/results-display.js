@@ -5,7 +5,6 @@
 
 import { FormatUtils } from '../utils/format-utils.js';
 import { LoadTimeDisplay } from './load-time-display.js';
-import { TreemapDisplay } from './treemap-display.js';
 import { DuplicateDisplay } from './duplicate-display.js';
 
 export class ResultsDisplay {
@@ -50,7 +49,6 @@ export class ResultsDisplay {
         const tbody = document.getElementById('resourcesBody');
         tbody.innerHTML = '';
         LoadTimeDisplay.clear();
-        TreemapDisplay.clear();
         DuplicateDisplay.clear();
     }
 
