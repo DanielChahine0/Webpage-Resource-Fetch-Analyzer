@@ -9,6 +9,7 @@ import { ResultsDisplay } from './results-display.js';
 import { PerformanceScoreDisplay } from './performance-score-display.js';
 import { LoadTimeDisplay } from './load-time-display.js';
 import { TreemapDisplay } from './treemap-display.js';
+import { ResourceChartDisplay } from './resource-chart-display.js';
 import { OptimizationSuggester } from '../core/optimization-suggester.js';
 import { OptimizationSuggestionsDisplay } from './optimization-suggestions-display.js';
 import { DuplicateDetector } from '../core/duplicate-detector.js';
