@@ -43,10 +43,11 @@ Estimate page load time based on:
 
 ## Visualization Features
 
-### 5. **Resource Type Charts**
+### 5. **Resource Type Charts** ✅
 - Pie chart showing breakdown by file type (images, CSS, JS, fonts, etc.)
 - Interactive charts with hover tooltips
 - Percentage and size information for each type
+**Status: Implemented** - See [RESOURCE_CHART.md](RESOURCE_CHART.md) for details
 
 ### 6. **Size Distribution Chart**
 - Bar chart showing largest to smallest resources

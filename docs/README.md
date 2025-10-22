@@ -35,6 +35,15 @@ This folder contains concise documentation for the Webpage Resource Fetch Analyz
 - Speed categories and visual display
 - Integration and usage guide
 
+### 📊 [RESOURCE_CHART.md](RESOURCE_CHART.md) & [RESOURCE_CHART_QUICK_START.md](RESOURCE_CHART_QUICK_START.md)
+**Resource type charts and visualization**
+- Interactive pie chart showing resource breakdown
+- Detailed tooltips with size, count, and percentage
+- Statistics table with visual percentage bars
+- Color-coded by file type (HTML, CSS, JS, images, etc.)
+- Responsive design for all screen sizes
+- Quick start guide for immediate implementation
+
 ### 🌐 [PROXY_SERVICES.md](PROXY_SERVICES.md)
 **CORS proxy services and rate limiting**
 - Eight proxy services in priority order
