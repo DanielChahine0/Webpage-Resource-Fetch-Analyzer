@@ -36,15 +36,15 @@
 }
 
 .duplicate-summary.success {
-    background: var(--success-light);
-    color: var(--success);
-    border: 1px solid var(--success);
+    background: var(--surface-secondary);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .duplicate-summary.warning {
-    background: var(--warning-light);
-    color: var(--warning);
-    border: 1px solid var(--warning);
+    background: var(--surface-secondary);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .duplicate-icon {
@@ -55,15 +55,15 @@
 .duplicate-no-issues {
     padding: 2rem;
     text-align: center;
-    background: var(--success-light);
+    background: var(--surface-secondary);
     border-radius: var(--radius-sm);
-    border: 1px solid var(--success);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     margin-top: 1rem;
 }
 
 .duplicate-no-issues p {
     margin: 0.5rem 0;
-    color: var(--success);
+    color: var(--text-primary);
     font-size: 1rem;
 }
 

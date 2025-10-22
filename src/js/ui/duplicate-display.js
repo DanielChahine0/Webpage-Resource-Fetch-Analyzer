@@ -29,23 +29,18 @@ export class DuplicateDisplay {
         header.className = 'duplicate-header';
         
         const title = document.createElement('h3');
-        title.textContent = '🔍 Duplicate Resource Detection';
+        title.textContent = 'Duplicate Resource Detection';
         header.appendChild(title);
 
         // Add summary status
         const summary = document.createElement('div');
         summary.className = analysis.hasDuplicates ? 'duplicate-summary warning' : 'duplicate-summary success';
         
-        const summaryIcon = document.createElement('span');
-        summaryIcon.className = 'duplicate-icon';
-        summaryIcon.textContent = analysis.hasDuplicates ? '⚠️' : '✅';
-        
         const summaryText = document.createElement('span');
         summaryText.textContent = analysis.hasDuplicates 
             ? `Found ${analysis.duplicateGroups.length} resource(s) loaded multiple times`
             : 'No duplicate resources detected';
         
-        summary.appendChild(summaryIcon);
         summary.appendChild(summaryText);
         header.appendChild(summary);
 
@@ -56,7 +51,7 @@ export class DuplicateDisplay {
             const successMessage = document.createElement('div');
             successMessage.className = 'duplicate-no-issues';
             successMessage.innerHTML = `
-                <p>✨ <strong>Great job!</strong> All resources are loaded only once.</p>
+                <p><strong>Great job!</strong> All resources are loaded only once.</p>
                 <p>No bandwidth is being wasted on duplicate downloads.</p>
             `;
             container.appendChild(successMessage);
