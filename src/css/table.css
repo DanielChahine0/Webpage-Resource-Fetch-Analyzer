@@ -94,7 +94,7 @@
 }
 
 .url-cell {
-    max-width: 400px;
+    max-width: 500px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -103,9 +103,45 @@
 }
 
 .name-cell {
-    max-width: 300px;
+    max-width: 350px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     color: var(--text-secondary);
+}
+
+/* Responsive Table Styles */
+@media (max-width: 768px) {
+    .url-cell {
+        max-width: 200px;
+    }
+
+    .name-cell {
+        max-width: 150px;
+    }
+
+    #resourcesTable th,
+    #resourcesTable td {
+        padding: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .url-cell {
+        max-width: 120px;
+    }
+
+    .name-cell {
+        max-width: 100px;
+    }
+
+    #resourcesTable th,
+    #resourcesTable td {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .file-type {
+        font-size: 0.65rem;
+        padding: 2px 6px;
+    }
 }

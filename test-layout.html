@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Test - Responsive & Footer</title>
+    <link rel="stylesheet" href="src/css/main.css">
+    <style>
+        .test-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            z-index: 9999;
+        }
+        .test-content {
+            min-height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <div><strong>Screen Width:</strong> <span id="screenWidth"></span>px</div>
+        <div><strong>Container Width:</strong> <span id="containerWidth"></span>px</div>
+        <div><strong>Breakpoint:</strong> <span id="breakpoint"></span></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Webpage Resource Fetch Analyzer</h1>
+            <p class="subtitle">Layout & Footer Test Page</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <form id="analyzerForm">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="urlInput" 
+                            placeholder="Enter URL (e.g., https://example.com)"
+                            value="https://example.com"
+                        >
+                        <button type="button" id="analyzeBtn">Analyze</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="test-content">
+                <h2 style="color: var(--text-primary);">Layout Test Content</h2>
+                <p style="color: var(--text-secondary);">
+                    This is a test page to verify:
+                </p>
+                <ul style="color: var(--text-secondary); line-height: 1.8;">
+                    <li>✅ Website is wider on desktop (1600px max-width)</li>
+                    <li>✅ Footer stays at the bottom of the page</li>
+                    <li>✅ Content adapts to different screen sizes</li>
+                    <li>✅ Mobile view works correctly</li>
+                    <li>✅ No horizontal scrolling issues</li>
+                </ul>
+            </div>
+
+            <div class="results-section" style="display: block;">
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-value">125</div>
+                        <div class="stat-label">Test Files</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">2.5 MB</div>
+                        <div class="stat-label">Test Size</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">150 KB</div>
+                        <div class="stat-label">Test HTML</div>
+                    </div>
+                </div>
+
+                <div class="test-content">
+                    <h3 style="color: var(--text-primary);">Responsive Breakpoints</h3>
+                    <div style="color: var(--text-secondary); line-height: 1.8;">
+                        <p><strong>🖥️ Large Desktop (1600px+):</strong> Maximum content width</p>
+                        <p><strong>💻 Desktop (1025px - 1599px):</strong> Full desktop layout</p>
+                        <p><strong>📱 Tablet (768px - 1024px):</strong> Flexible layouts</p>
+                        <p><strong>📱 Mobile (481px - 768px):</strong> Stacked elements</p>
+                        <p><strong>📱 Small Mobile (up to 480px):</strong> Compact view</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Created by Daniel Chahine</p>
+            <p class="note">Note: Due to browser CORS restrictions, this tool uses a proxy service. Some websites may not be accessible.</p>
+        </footer>
+    </div>
+
+    <script>
+        function updateScreenInfo() {
+            const width = window.innerWidth;
+            document.getElementById('screenWidth').textContent = width;
+            
+            const container = document.querySelector('.container');
+            document.getElementById('containerWidth').textContent = 
+                container.offsetWidth;
+            
+            let breakpoint = 'Unknown';
+            if (width >= 1600) breakpoint = 'Large Desktop (1600px+)';
+            else if (width >= 1025) breakpoint = 'Desktop (1025px - 1599px)';
+            else if (width >= 768) breakpoint = 'Tablet (768px - 1024px)';
+            else if (width >= 481) breakpoint = 'Mobile (481px - 768px)';
+            else breakpoint = 'Small Mobile (up to 480px)';
+            
+            document.getElementById('breakpoint').textContent = breakpoint;
+        }
+        
+        updateScreenInfo();
+        window.addEventListener('resize', updateScreenInfo);
+    </script>
+</body>
+</html>

@@ -1,7 +1,30 @@
 /**
  * Responsive Styles
- * Media queries for mobile and tablet devices
+ * Media queries for mobile, tablet, and desktop devices
  */
+
+/* Large Desktop View (1600px+) */
+@media (min-width: 1600px) {
+    header h1 {
+        font-size: var(--font-size-4xl);
+    }
+
+    main {
+        padding: var(--spacing-2xl);
+    }
+
+    .stats-cards {
+        gap: var(--spacing-2xl);
+    }
+
+    .url-cell {
+        max-width: 600px;
+    }
+
+    .name-cell {
+        max-width: 450px;
+    }
+}
 
 /* Tablet View (768px - 1024px) */
 @media (max-width: 1024px) {
