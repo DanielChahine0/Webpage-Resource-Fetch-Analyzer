@@ -23,11 +23,11 @@ header h1 {
 }
 
 main {
-    background: var(--surface-secondary);
+    background: var(--bg-primary);
     border-radius: var(--radius-md);
     padding: var(--spacing-lg);
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--surface-border);
+    box-shadow: none;
+    border: none;
 }
 
 footer {

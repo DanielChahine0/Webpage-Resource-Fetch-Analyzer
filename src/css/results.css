@@ -28,7 +28,7 @@
     padding: var(--spacing-md) var(--spacing-lg);
     background: var(--surface-secondary);
     color: var(--text-primary);
-    border: 1px solid var(--surface-border);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: var(--radius-md);
     cursor: pointer;
     font-size: var(--font-size-sm);
@@ -41,9 +41,9 @@
 
 .export-btn:hover {
     background: var(--surface-hover);
-    border-color: var(--accent-primary);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
 .stats-cards {
@@ -54,20 +54,20 @@
 }
 
 .stat-card {
-    background: var(--surface-primary);
+    background: var(--surface-secondary);
     color: var(--text-primary);
     padding: var(--spacing-xl);
     border-radius: var(--radius-md);
     text-align: center;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--surface-border);
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all var(--transition-base);
 }
 
 .stat-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--surface-border);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .stat-value {
