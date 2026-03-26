@@ -1,117 +1,118 @@
 /**
- * Theme Variables
- * Centralized color scheme and design tokens for consistent theming
- * Dark theme with blue accents
- * 
- * All colors are defined as CSS variables for easy customization
- * To create a custom theme, simply override these variables in :root
+ * Theme Variables — Signal Monitor Design System
+ * Deep black + warm amber accent + technical mono typography
  */
 
 :root {
-    /* Primary Colors - Consistent Dark Theme */
-    --bg-primary: #1a1a1a;
-    --bg-secondary: #1a1a1a;
-    --bg-tertiary: #1a1a1a;
-    --bg-elevated: #1f1f1f;
-    
-    /* Surface Colors - Consistent Dark Theme */
-    --surface-primary: #1a1a1a;
-    --surface-secondary: #1f1f1f;
-    --surface-hover: #252525;
-    --surface-border: rgba(255, 255, 255, 0.1);
-    
-    /* Text Colors */
-    --text-primary: #ffffff;
-    --text-secondary: #e5e7eb;
-    --text-tertiary: #d1d5db;
-    --text-muted: #9ca3af;
-    
-    /* Accent Colors - White Theme */
-    --accent-primary: #ffffff;
-    --accent-secondary: #e5e5e5;
-    --accent-hover: #f5f5f5;
-    --accent-light: rgba(255, 255, 255, 0.1);
-    
-    /* Status Colors - Muted for Dark Theme */
-    --success: #10b981;
-    --success-light: rgba(16, 185, 129, 0.08);
-    --warning: #f59e0b;
-    --warning-light: rgba(245, 158, 11, 0.08);
-    --error: #ef4444;
-    --error-light: rgba(239, 68, 68, 0.08);
-    --info: #ffffff;
-    --info-light: rgba(255, 255, 255, 0.08);
-    
-    /* Performance Score Colors - Simplified & Darker */
-    --score-excellent: #10b981;
-    --score-good: #84cc16;
-    --score-fair: #f59e0b;
-    --score-poor: #ef4444;
-    
-    /* Network Speed Colors - Simplified & Darker */
-    --network-fast: #666666;
-    --network-latency: #666666;
-    --network-download: #666666;
-    --network-parse: #666666;
-    
-    /* Resource Type Colors - Simplified & Darker */
-    --type-html: #888888;
-    --type-html-bg: rgba(136, 136, 136, 0.08);
-    --type-css: #888888;
-    --type-css-bg: rgba(136, 136, 136, 0.08);
-    --type-js: #888888;
-    --type-js-bg: rgba(136, 136, 136, 0.08);
-    --type-image: #888888;
-    --type-image-bg: rgba(136, 136, 136, 0.08);
-    --type-video: #888888;
-    --type-video-bg: rgba(136, 136, 136, 0.08);
-    --type-audio: #888888;
-    --type-audio-bg: rgba(136, 136, 136, 0.08);
-    --type-font: #888888;
-    --type-font-bg: rgba(136, 136, 136, 0.08);
-    --type-other: #666666;
-    --type-other-bg: rgba(102, 102, 102, 0.08);
-    
-    /* Shadow and Effects - Minimal for Clean Look */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.4);
-    --shadow-xl: 0 6px 12px rgba(0, 0, 0, 0.5);
-    
+    /* Background Scale */
+    --bg-primary:    #07080b;
+    --bg-secondary:  #0c0e13;
+    --bg-tertiary:   #0f1118;
+    --bg-elevated:   #131620;
+
+    /* Surface Scale */
+    --surface-primary:   #131620;
+    --surface-secondary: #181c26;
+    --surface-hover:     #1e2230;
+    --surface-border:    rgba(240, 180, 60, 0.12);
+
+    /* Text Scale */
+    --text-primary:   #f2ead8;
+    --text-secondary: #c8bfa8;
+    --text-tertiary:  #9a9080;
+    --text-muted:     #60584a;
+
+    /* Amber Accent */
+    --accent-primary:  #e8a020;
+    --accent-secondary:#c47818;
+    --accent-hover:    #f0b840;
+    --accent-light:    rgba(232, 160, 32, 0.10);
+    --accent-glow:     rgba(232, 160, 32, 0.20);
+
+    /* Status */
+    --success:       #52c878;
+    --success-light: rgba(82, 200, 120, 0.10);
+    --warning:       #e8a020;
+    --warning-light: rgba(232, 160, 32, 0.10);
+    --error:         #e05050;
+    --error-light:   rgba(224, 80, 80, 0.10);
+    --info:          #4ab0e0;
+    --info-light:    rgba(74, 176, 224, 0.10);
+
+    /* Performance Score Colors */
+    --score-excellent: #52c878;
+    --score-good:      #a0cc40;
+    --score-fair:      #e8a020;
+    --score-poor:      #e05050;
+
+    /* Resource Type Colors — each distinct */
+    --type-html:    #e07060;
+    --type-html-bg: rgba(224, 112, 96, 0.10);
+    --type-css:     #4a9edd;
+    --type-css-bg:  rgba(74, 158, 221, 0.10);
+    --type-js:      #f0c040;
+    --type-js-bg:   rgba(240, 192, 64, 0.10);
+    --type-image:   #5cb87a;
+    --type-image-bg:rgba(92, 184, 122, 0.10);
+    --type-video:   #a07acc;
+    --type-video-bg:rgba(160, 122, 204, 0.10);
+    --type-audio:   #40c0b8;
+    --type-audio-bg:rgba(64, 192, 184, 0.10);
+    --type-font:    #e8804a;
+    --type-font-bg: rgba(232, 128, 74, 0.10);
+    --type-other:   #7a8090;
+    --type-other-bg:rgba(122, 128, 144, 0.10);
+
+    /* Network Speed Colors */
+    --network-fast:     #52c878;
+    --network-latency:  #4ab0e0;
+    --network-download: #e8a020;
+    --network-parse:    #a07acc;
+
+    /* Shadows */
+    --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-lg:  0 8px 24px rgba(0, 0, 0, 0.6);
+    --shadow-xl:  0 16px 40px rgba(0, 0, 0, 0.7);
+    --shadow-amber: 0 0 20px rgba(232, 160, 32, 0.15);
+
     /* Border Radius */
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 15px;
-    --radius-xl: 20px;
+    --radius-sm:   4px;
+    --radius-md:   8px;
+    --radius-lg:   12px;
+    --radius-xl:   18px;
     --radius-full: 9999px;
-    
+
     /* Spacing */
-    --spacing-xs: 0.35rem;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 0.75rem;
-    --spacing-lg: 1rem;
-    --spacing-xl: 1.25rem;
-    --spacing-2xl: 1.75rem;
-    
+    --spacing-xs:  0.35rem;
+    --spacing-sm:  0.5rem;
+    --spacing-md:  0.75rem;
+    --spacing-lg:  1rem;
+    --spacing-xl:  1.5rem;
+    --spacing-2xl: 2rem;
+
     /* Typography */
-    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-size-xs: 0.7rem;
-    --font-size-sm: 0.8rem;
+    --font-display: 'Syne', system-ui, sans-serif;
+    --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
+    --font-family:  'Syne', system-ui, sans-serif;
+
+    --font-size-xs:   0.7rem;
+    --font-size-sm:   0.8rem;
     --font-size-base: 0.875rem;
-    --font-size-lg: 0.95rem;
-    --font-size-xl: 1.05rem;
-    --font-size-2xl: 1.2rem;
-    --font-size-3xl: 1.4rem;
-    --font-size-4xl: 1.6rem;
-    
+    --font-size-lg:   1rem;
+    --font-size-xl:   1.1rem;
+    --font-size-2xl:  1.35rem;
+    --font-size-3xl:  1.7rem;
+    --font-size-4xl:  2.2rem;
+
     /* Transitions */
-    --transition-fast: 150ms ease;
-    --transition-base: 250ms ease;
-    --transition-slow: 350ms ease;
-    
+    --transition-fast: 120ms ease;
+    --transition-base: 220ms ease;
+    --transition-slow: 380ms ease;
+
     /* Z-index */
-    --z-base: 1;
+    --z-base:    1;
     --z-elevated: 10;
-    --z-overlay: 100;
-    --z-modal: 1000;
+    --z-overlay:  100;
+    --z-modal:    1000;
 }

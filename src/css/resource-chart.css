@@ -1,22 +1,24 @@
 /**
- * Resource Chart Styles
- * Styles for the resource type pie chart and statistics
+ * Resource Chart Styles — Signal Monitor
  */
 
 .resource-chart-section {
     background: var(--surface-secondary);
     border-radius: var(--radius-md);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl);
     margin-bottom: var(--spacing-lg);
-    box-shadow: none;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    animation: fadeIn 0.5s;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    animation: fadeIn 0.5s ease;
 }
 
 .resource-chart-section h3 {
-    color: var(--text-primary);
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--spacing-md);
+    font-family: var(--font-display);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-xl);
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
@@ -25,19 +27,20 @@
 .resource-chart-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xl);
     align-items: start;
 }
 
 #resourceChartContainer {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.02);
     border-radius: var(--radius-md);
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 250px;
     max-width: 350px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 #resourceChartContainer canvas {
@@ -46,72 +49,91 @@
 }
 
 #resourceChartStats {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.02);
     border-radius: var(--radius-md);
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 #resourceChartStats h4 {
-    color: var(--text-primary);
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-md);
+    font-family: var(--font-display);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-lg);
     text-align: center;
 }
 
 .resource-chart-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .resource-chart-table thead th {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--text-primary);
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-display);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     padding: var(--spacing-sm) var(--spacing-md);
     text-align: left;
-    font-weight: 600;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .resource-chart-table tbody tr {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    transition: background-color 0.2s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    transition: background-color 0.15s ease;
 }
 
 .resource-chart-table tbody tr:hover {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(232, 160, 32, 0.04);
 }
 
 .resource-chart-table td {
     padding: var(--spacing-sm) var(--spacing-md);
-    color: var(--text-primary);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.resource-chart-table td:nth-child(3),
+.resource-chart-table td:nth-child(4) {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
 }
 
 .resource-chart-table tfoot .total-row {
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    background: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .resource-chart-table tfoot td {
     padding: var(--spacing-md);
     color: var(--text-primary);
+    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
 }
 
 .type-indicator {
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    margin-right: var(--spacing-xs);
+    margin-right: var(--spacing-sm);
     vertical-align: middle;
 }
 
 .percentage-bar-container {
     position: relative;
     width: 100%;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-full);
     overflow: hidden;
 }
 
@@ -120,8 +142,8 @@
     left: 0;
     top: 0;
     height: 100%;
-    border-radius: 10px;
-    transition: width 0.3s ease;
+    border-radius: var(--radius-full);
+    transition: width 0.4s ease;
 }
 
 .percentage-text {
@@ -129,69 +151,31 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: var(--text-color);
-    font-size: 0.85rem;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
     font-weight: 600;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
     z-index: 1;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (min-width: 1600px) {
-    .resource-chart-content {
-        gap: var(--spacing-2xl);
-    }
+    .resource-chart-content { gap: var(--spacing-2xl); }
 }
-
 @media (max-width: 992px) {
-    .resource-chart-content {
-        grid-template-columns: 1fr;
-    }
-    
-    #resourceChartContainer {
-        max-width: 500px;
-        margin: 0 auto;
-    }
+    .resource-chart-content { grid-template-columns: 1fr; }
+    #resourceChartContainer { max-width: 500px; margin: 0 auto; }
 }
-
 @media (max-width: 768px) {
-    .resource-chart-section {
-        padding: var(--spacing-md);
-    }
-    
-    .resource-chart-section h3 {
-        font-size: 1.3rem;
-    }
-    
-    #resourceChartContainer {
-        min-height: 250px;
-    }
-    
-    .resource-chart-table {
-        font-size: 0.85rem;
-    }
-    
+    .resource-chart-section { padding: var(--spacing-lg); }
+    #resourceChartContainer { min-height: 250px; }
+    .resource-chart-table { font-size: 0.8rem; }
     .resource-chart-table th,
-    .resource-chart-table td {
-        padding: var(--spacing-xs) var(--spacing-sm);
-    }
+    .resource-chart-table td { padding: var(--spacing-xs) var(--spacing-sm); }
 }
-
 @media (max-width: 480px) {
-    .resource-chart-section h3 {
-        font-size: 1.1rem;
-    }
-    
-    #resourceChartContainer {
-        min-height: 200px;
-        padding: var(--spacing-sm);
-    }
-    
-    .resource-chart-table {
-        font-size: 0.8rem;
-    }
-    
-    .percentage-text {
-        font-size: 0.75rem;
-    }
+    #resourceChartContainer { min-height: 200px; padding: var(--spacing-sm); }
+    .resource-chart-table { font-size: 0.75rem; }
+    .percentage-text { font-size: 0.65rem; }
 }
